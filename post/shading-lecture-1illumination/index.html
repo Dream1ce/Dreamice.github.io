@@ -2,7 +2,7 @@
 <html lang="zh-CN">
  <head>
      <meta charset="utf-8" />
-  <title>Hello Gridea | Learning Bolg</title>
+  <title>Shading: lecture 1(Illumination) | Learning Bolg</title>
   <meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" name="viewport" />
   <link rel="stylesheet" href="https://dream1ce.github.io/styles/main.css" />
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.10.0/katex.min.css">
@@ -75,40 +75,28 @@
      <div class="post-page">
       <div class="post animated fadeInDown">
        <div class="post-title">
-        <h3><a>Hello Gridea</a></h3>
+        <h3><a>Shading: lecture 1(Illumination)</a></h3>
        </div>
        <div class="post-content">
-        <p>👏  欢迎使用 <strong>Gridea</strong> ！<br>
-✍️  <strong>Gridea</strong> 一个静态博客写作客户端。你可以用它来记录你的生活、心情、知识、笔记、创意... ...</p>
-<!-- more -->
-<p><a href="https://github.com/getgridea/gridea">Github</a><br>
-<a href="https://gridea.dev/">Gridea 主页</a><br>
-<a href="http://fehey.com/">示例网站</a></p>
-<h2 id="特性">特性👇</h2>
-<p>📝  你可以使用最酷的 <strong>Markdown</strong> 语法，进行快速创作</p>
-<p>🌉  你可以给文章配上精美的封面图和在文章任意位置插入图片</p>
-<p>🏷️  你可以对文章进行标签分组</p>
-<p>📋  你可以自定义菜单，甚至可以创建外部链接菜单</p>
-<p>💻  你可以在 <strong>Windows</strong>，<strong>MacOS</strong> 或 <strong>Linux</strong> 设备上使用此客户端</p>
-<p>🌎  你可以使用 <strong>𝖦𝗂𝗍𝗁𝗎𝖻 𝖯𝖺𝗀𝖾𝗌</strong> 或 <strong>Coding Pages</strong> 向世界展示，未来将支持更多平台</p>
-<p>💬  你可以进行简单的配置，接入 <a href="https://github.com/gitalk/gitalk">Gitalk</a> 或 <a href="https://github.com/SukkaW/DisqusJS">DisqusJS</a> 评论系统</p>
-<p>🇬🇧  你可以使用<strong>中文简体</strong>或<strong>英语</strong></p>
-<p>🌁  你可以任意使用应用内默认主题或任意第三方主题，强大的主题自定义能力</p>
-<p>🖥  你可以自定义源文件夹，利用 OneDrive、百度网盘、iCloud、Dropbox 等进行多设备同步</p>
-<p>🌱 当然 <strong>Gridea</strong> 还很年轻，有很多不足，但请相信，它会不停向前 🏃</p>
-<p>未来，它一定会成为你离不开的伙伴</p>
-<p>尽情发挥你的才华吧！</p>
-<p>😘 Enjoy~</p>
+        <p>#Shading（着色）<br>
+Shading 表示对相应模型或者图像内容的绘制。在计算机图形学中表示相应的模型在映射到屏幕之后其像素点的有关对应值。其处理的内容包括但不限于对模型表面光的角度的计算、与光的距离、与观测点的距离、表面的材质相关的属性.etc<br>
+#Illumination(光照)<br>
+（PS:这里所说的光照仅表示了物体因为光照而对自身不同部分产生的明暗变化，并不包含物体所产生的阴影）<br>
+##Diffuse(漫反射)<br>
+在说明漫反射之前先要明白，影响物体漫反射强度的因素大概有这三点：<br>
+1、物体表面材质对于光线的吸收程度$$K_{i}$$<br>
+2、光线照射到这点的角度$$\max{0,角度的余弦}$$（PS:因为光的强度并不为复数所以最小也要取0）<br>
+3、光线到照射点时的强度$$\frac{I}{r^{2}}$$<br>
+以下对第三点进行解释，对于点光源而言可以将其的能量看作是均匀散布在一个球壳上的且其散布的能量总数是维持不变。所以到某一点的光强度其大小是和到点光源的距离的平方成反比的。<br>
+由此可以推出漫反射相应像素点的光照强度是$$L_{i}=K_{i}\max{0,余弦的角度}\frac{I}{r^2}$$</p>
 
        </div>
        <div class="post-footer">
         <div class="meta">
          <div class="info">
           <i class="fa fa-sun-o"></i>
-          <span class="date">2018-12-12</span>
+          <span class="date">2020-04-03</span>
           <i class="fa fa-tag"></i>
-          
-          <a class="tag" href="https://dream1ce.github.io/tag/7IxiyAgpl/" title="Gridea">Gridea </a>
           
          </div>
         </div>
@@ -122,14 +110,14 @@
         <a class="fa fa-weibo" href="javascript:void((function(s,d,e){try{}catch(e){}var f='http://service.weibo.com/share/share.php?',u=d.location.href,p=['url=',e(u),'&amp;title=',e(d.title),'&amp;appkey=2924220432'].join('');function a(){if(!window.open([f,p].join(''),'mb',['toolbar=0,status=0,resizable=1,width=620,height=450,left=',(s.width-620)/2,',top=',(s.height-450)/2].join('')))u.href=[f,p].join('');};if(/Firefox/.test(navigator.userAgent)){setTimeout(a,0)}else{a()}})(screen,document,encodeURIComponent));"></a>
        </div>
        <div class="twitter">
-        <a class="fa fa-twitter" href="http://twitter.com/home?status=,https://dream1ce.github.io/post/hello-gridea/,;"></a>
+        <a class="fa fa-twitter" href="http://twitter.com/home?status=,https://dream1ce.github.io/post/shading-lecture-1illumination/,;"></a>
        </div>
       </div>
       <div class="pagination">
        <ul class="clearfix">
 
-        <li class="pre pagbuttons"><a class="btn" role="navigation" href="https://dream1ce.github.io/post/shading-lecture-1illumination/" title="Shading: lecture 1(Illumination)">上一篇</a></li>
-         
+        
+        <li class="next pagbuttons"><a class="btn" role="navigation" href="https://dream1ce.github.io/post/hello-gridea/" title=" Hello Gridea">下一篇</a></li>
         
        </ul>
       </div>
