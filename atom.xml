@@ -2,7 +2,7 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
     <id>https://dream1ce.github.io</id>
     <title>Learning Bolg</title>
-    <updated>2020-04-03T12:01:16.999Z</updated>
+    <updated>2020-04-03T12:04:53.027Z</updated>
     <generator>https://github.com/jpmonette/feed</generator>
     <link rel="alternate" href="https://dream1ce.github.io"/>
     <link rel="self" href="https://dream1ce.github.io/atom.xml"/>
@@ -16,17 +16,20 @@
         <link href="https://dream1ce.github.io/post/shading-lecture-1illumination/">
         </link>
         <updated>2020-04-03T11:09:54.000Z</updated>
-        <content type="html"><![CDATA[<p>#Shading（着色）<br>
-Shading 表示对相应模型或者图像内容的绘制。在计算机图形学中表示相应的模型在映射到屏幕之后其像素点的有关对应值。其处理的内容包括但不限于对模型表面光的角度的计算、与光的距离、与观测点的距离、表面的材质相关的属性.etc<br>
-#Illumination(光照)<br>
-（PS:这里所说的光照仅表示了物体因为光照而对自身不同部分产生的明暗变化，并不包含物体所产生的阴影）<br>
-##Diffuse(漫反射)<br>
-在说明漫反射之前先要明白，影响物体漫反射强度的因素大概有这三点：<br>
-1、物体表面材质对于光线的吸收程度$$K_{i}$$<br>
-2、光线照射到这点的角度$$\max{0,角度的余弦}$$（PS:因为光的强度并不为复数所以最小也要取0）<br>
-3、光线到照射点时的强度$$\frac{I}{r^{2}}$$<br>
-以下对第三点进行解释，对于点光源而言可以将其的能量看作是均匀散布在一个球壳上的且其散布的能量总数是维持不变。所以到某一点的光强度其大小是和到点光源的距离的平方成反比的。<br>
-由此可以推出漫反射相应像素点的光照强度是$$L_{i}=K_{i}\max{0,余弦的角度}\frac{I}{r^2}$$</p>
+        <content type="html"><![CDATA[<h1 id="shading着色">Shading（着色）</h1>
+<pre><code>Shading 表示对相应模型或者图像内容的绘制。在计算机图形学中表示相应的模型在映射到屏幕之后其像素点的有关对应值。其处理的内容包括但不限于对模型表面光的角度的计算、与光的距离、与观测点的距离、表面的材质相关的属性.etc
+</code></pre>
+<h1 id="illumination光照">Illumination(光照)</h1>
+<pre><code>（PS:这里所说的光照仅表示了物体因为光照而对自身不同部分产生的明暗变化，并不包含物体所产生的阴影）
+</code></pre>
+<h2 id="diffuse漫反射">Diffuse(漫反射)</h2>
+<pre><code>在说明漫反射之前先要明白，影响物体漫反射强度的因素大概有这三点：
+1、物体表面材质对于光线的吸收程度 $$ K_{i} $$
+2、光线照射到这点的角度 $$ \max{0,角度的余弦} $$ （PS:因为光的强度并不为复数所以最小也要取0）
+3、光线到照射点时的强度$$ \frac{I}{r^{2}} $$
+以下对第三点进行解释，对于点光源而言可以将其的能量看作是均匀散布在一个球壳上的且其散布的能量总数是维持不变。所以到某一点的光强度其大小是和到点光源的距离的平方成反比的。
+由此可以推出漫反射相应像素点的光照强度是 $$ L_{i}=K_{i}\max{0,余弦的角度}\frac{I}{r^2} $$
+</code></pre>
 ]]></content>
     </entry>
     <entry>
