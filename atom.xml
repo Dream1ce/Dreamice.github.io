@@ -2,7 +2,7 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
     <id>https://dream1ce.github.io</id>
     <title>Learning Bolg</title>
-    <updated>2020-04-05T09:34:27.013Z</updated>
+    <updated>2020-04-05T13:20:42.282Z</updated>
     <generator>https://github.com/jpmonette/feed</generator>
     <link rel="alternate" href="https://dream1ce.github.io"/>
     <link rel="self" href="https://dream1ce.github.io/atom.xml"/>
@@ -10,6 +10,43 @@
     <logo>https://dream1ce.github.io/images/avatar.png</logo>
     <icon>https://dream1ce.github.io/favicon.ico</icon>
     <rights>All rights reserved 2020, Learning Bolg</rights>
+    <entry>
+        <title type="html"><![CDATA[Shading:lecture2(Pipeline)]]></title>
+        <id>https://dream1ce.github.io/post/shadinglecture2pipeline/</id>
+        <link href="https://dream1ce.github.io/post/shadinglecture2pipeline/">
+        </link>
+        <updated>2020-04-05T12:29:37.000Z</updated>
+        <content type="html"><![CDATA[<p>以下的内容和硬件有些许关系。</p>
+<h1 id="rendering-pipeline渲染管线">Rendering Pipeline(渲染管线)</h1>
+<p>渲染管线又称渲染流水线，顾名思义其是用来表示从三维模型映射到二维图像直到呈现在屏幕上的整个过程。<br>
+其大致的流程为：<strong>顶点数据-&gt;顶点着色器-&gt;曲面细分-&gt;几何着色器-&gt;图元组装-&gt;光栅化-&gt;片段着色器-&gt;测试混合阶段</strong></p>
+<h4 id="顶点数据">顶点数据：</h4>
+<p>顶点数据用来为后面的其他阶段提供顶点信息，用于后期的绘制。<br>
+要注意的是在顶点数据阶段要向相应的图形图像接口表明是什么图元：常见的图元为点、线、三角面</p>
+<h4 id="顶点着色器">顶点着色器：</h4>
+<p>顶点着色器最主要进行坐标变换，从局部坐标到世界坐标、观测坐标、剪裁坐标的变换。在一些渲染方式中也会用来计算顶点的光照信息，如Groudaud Shading模型，但是效果不佳不常用。</p>
+<h4 id="曲面细分">曲面细分：</h4>
+<p>用镶嵌化技术对三角面进行细分，来增加三角面的个数。</p>
+<h4 id="图元组装">图元组装：</h4>
+<p>将输入的顶点信息组装成图元。</p>
+<h4 id="光栅化">光栅化：</h4>
+<p>将图形由连续转化为离散的像素点的过程。</p>
+<h4 id="片段着色器">片段着色器：</h4>
+<p>用来计算光照等其他可计算因素，来呈现屏幕上像素点最后的颜色。<br>
+##注意：<br>
+渲染管线的流程在不同的教科书中有不同的流程，以上划分仅仅为其中一个版本。</p>
+<h1 id="shader着色器">Shader（着色器）</h1>
+<p>Shader 中文名称为着色器，通俗的来讲就是负责绘制图像的内容的一种GPU程序。<br>
+对于图形学来讲常用的Shader为Vertex Shader 和 Fragment Shader。<br>
+以下列出其他Shader类型权当扩展：</p>
+<ol>
+<li>Geometry Shader：用来对于几何图形进行计算。</li>
+<li>Compute Shader：一种通用的计算单元，能计算一些更复杂的逻辑。<br>
+#显卡中的相应硬件：<br>
+显卡中有大量的运算单元，用来专门执行相应类型的Shader，其处理器的类型均为SIMD（并不严谨），能在同时做大量并行的计算。</li>
+</ol>
+]]></content>
+    </entry>
     <entry>
         <title type="html"><![CDATA[Shading: lecture 1(Illumination)]]></title>
         <id>https://dream1ce.github.io/post/shading-lecture-1illumination/</id>

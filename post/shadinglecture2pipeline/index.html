@@ -2,7 +2,7 @@
 <html lang="zh-CN">
  <head>
      <meta charset="utf-8" />
-  <title>Hello Gridea | Learning Bolg</title>
+  <title>Shading:lecture2(Pipeline) | Learning Bolg</title>
   <meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" name="viewport" />
   <link rel="stylesheet" href="https://dream1ce.github.io/styles/main.css" />
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.10.0/katex.min.css">
@@ -75,40 +75,46 @@
      <div class="post-page">
       <div class="post animated fadeInDown">
        <div class="post-title">
-        <h3><a>Hello Gridea</a></h3>
+        <h3><a>Shading:lecture2(Pipeline)</a></h3>
        </div>
        <div class="post-content">
-        <p>👏  欢迎使用 <strong>Gridea</strong> ！<br>
-✍️  <strong>Gridea</strong> 一个静态博客写作客户端。你可以用它来记录你的生活、心情、知识、笔记、创意... ...</p>
-<!-- more -->
-<p><a href="https://github.com/getgridea/gridea">Github</a><br>
-<a href="https://gridea.dev/">Gridea 主页</a><br>
-<a href="http://fehey.com/">示例网站</a></p>
-<h2 id="特性">特性👇</h2>
-<p>📝  你可以使用最酷的 <strong>Markdown</strong> 语法，进行快速创作</p>
-<p>🌉  你可以给文章配上精美的封面图和在文章任意位置插入图片</p>
-<p>🏷️  你可以对文章进行标签分组</p>
-<p>📋  你可以自定义菜单，甚至可以创建外部链接菜单</p>
-<p>💻  你可以在 <strong>Windows</strong>，<strong>MacOS</strong> 或 <strong>Linux</strong> 设备上使用此客户端</p>
-<p>🌎  你可以使用 <strong>𝖦𝗂𝗍𝗁𝗎𝖻 𝖯𝖺𝗀𝖾𝗌</strong> 或 <strong>Coding Pages</strong> 向世界展示，未来将支持更多平台</p>
-<p>💬  你可以进行简单的配置，接入 <a href="https://github.com/gitalk/gitalk">Gitalk</a> 或 <a href="https://github.com/SukkaW/DisqusJS">DisqusJS</a> 评论系统</p>
-<p>🇬🇧  你可以使用<strong>中文简体</strong>或<strong>英语</strong></p>
-<p>🌁  你可以任意使用应用内默认主题或任意第三方主题，强大的主题自定义能力</p>
-<p>🖥  你可以自定义源文件夹，利用 OneDrive、百度网盘、iCloud、Dropbox 等进行多设备同步</p>
-<p>🌱 当然 <strong>Gridea</strong> 还很年轻，有很多不足，但请相信，它会不停向前 🏃</p>
-<p>未来，它一定会成为你离不开的伙伴</p>
-<p>尽情发挥你的才华吧！</p>
-<p>😘 Enjoy~</p>
+        <p>以下的内容和硬件有些许关系。</p>
+<h1 id="rendering-pipeline渲染管线">Rendering Pipeline(渲染管线)</h1>
+<p>渲染管线又称渲染流水线，顾名思义其是用来表示从三维模型映射到二维图像直到呈现在屏幕上的整个过程。<br>
+其大致的流程为：<strong>顶点数据-&gt;顶点着色器-&gt;曲面细分-&gt;几何着色器-&gt;图元组装-&gt;光栅化-&gt;片段着色器-&gt;测试混合阶段</strong></p>
+<h4 id="顶点数据">顶点数据：</h4>
+<p>顶点数据用来为后面的其他阶段提供顶点信息，用于后期的绘制。<br>
+要注意的是在顶点数据阶段要向相应的图形图像接口表明是什么图元：常见的图元为点、线、三角面</p>
+<h4 id="顶点着色器">顶点着色器：</h4>
+<p>顶点着色器最主要进行坐标变换，从局部坐标到世界坐标、观测坐标、剪裁坐标的变换。在一些渲染方式中也会用来计算顶点的光照信息，如Groudaud Shading模型，但是效果不佳不常用。</p>
+<h4 id="曲面细分">曲面细分：</h4>
+<p>用镶嵌化技术对三角面进行细分，来增加三角面的个数。</p>
+<h4 id="图元组装">图元组装：</h4>
+<p>将输入的顶点信息组装成图元。</p>
+<h4 id="光栅化">光栅化：</h4>
+<p>将图形由连续转化为离散的像素点的过程。</p>
+<h4 id="片段着色器">片段着色器：</h4>
+<p>用来计算光照等其他可计算因素，来呈现屏幕上像素点最后的颜色。<br>
+##注意：<br>
+渲染管线的流程在不同的教科书中有不同的流程，以上划分仅仅为其中一个版本。</p>
+<h1 id="shader着色器">Shader（着色器）</h1>
+<p>Shader 中文名称为着色器，通俗的来讲就是负责绘制图像的内容的一种GPU程序。<br>
+对于图形学来讲常用的Shader为Vertex Shader 和 Fragment Shader。<br>
+以下列出其他Shader类型权当扩展：</p>
+<ol>
+<li>Geometry Shader：用来对于几何图形进行计算。</li>
+<li>Compute Shader：一种通用的计算单元，能计算一些更复杂的逻辑。<br>
+#显卡中的相应硬件：<br>
+显卡中有大量的运算单元，用来专门执行相应类型的Shader，其处理器的类型均为SIMD（并不严谨），能在同时做大量并行的计算。</li>
+</ol>
 
        </div>
        <div class="post-footer">
         <div class="meta">
          <div class="info">
           <i class="fa fa-sun-o"></i>
-          <span class="date">2018-12-12</span>
+          <span class="date">2020-04-05</span>
           <i class="fa fa-tag"></i>
-          
-          <a class="tag" href="https://dream1ce.github.io/tag/7IxiyAgpl/" title="Gridea">Gridea </a>
           
          </div>
         </div>
@@ -122,14 +128,14 @@
         <a class="fa fa-weibo" href="javascript:void((function(s,d,e){try{}catch(e){}var f='http://service.weibo.com/share/share.php?',u=d.location.href,p=['url=',e(u),'&amp;title=',e(d.title),'&amp;appkey=2924220432'].join('');function a(){if(!window.open([f,p].join(''),'mb',['toolbar=0,status=0,resizable=1,width=620,height=450,left=',(s.width-620)/2,',top=',(s.height-450)/2].join('')))u.href=[f,p].join('');};if(/Firefox/.test(navigator.userAgent)){setTimeout(a,0)}else{a()}})(screen,document,encodeURIComponent));"></a>
        </div>
        <div class="twitter">
-        <a class="fa fa-twitter" href="http://twitter.com/home?status=,https://dream1ce.github.io/post/hello-gridea/,;"></a>
+        <a class="fa fa-twitter" href="http://twitter.com/home?status=,https://dream1ce.github.io/post/shadinglecture2pipeline/,;"></a>
        </div>
       </div>
       <div class="pagination">
        <ul class="clearfix">
 
-        <li class="pre pagbuttons"><a class="btn" role="navigation" href="https://dream1ce.github.io/post/shading-lecture-1illumination/" title="Shading: lecture 1(Illumination)">上一篇</a></li>
-         
+        
+        <li class="next pagbuttons"><a class="btn" role="navigation" href="https://dream1ce.github.io/post/shading-lecture-1illumination/" title=" Shading: lecture 1(Illumination)">下一篇</a></li>
         
        </ul>
       </div>
