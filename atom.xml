@@ -2,7 +2,7 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
     <id>https://dream1ce.github.io</id>
     <title>Learning Bolg</title>
-    <updated>2020-04-04T14:39:36.710Z</updated>
+    <updated>2020-04-05T01:48:41.544Z</updated>
     <generator>https://github.com/jpmonette/feed</generator>
     <link rel="alternate" href="https://dream1ce.github.io"/>
     <link rel="self" href="https://dream1ce.github.io/atom.xml"/>
@@ -44,7 +44,7 @@
 <ol>
 <li>Flat Shading(平面渲染)：在平面取某个特定点用此点来表示整个面的渲染效果。（在面不是很多的时候效果不佳，在片面很多时效果向Phong Shading 趋近）</li>
 <li>Gouraud Shading（顶点渲染）：将顶点的光照计算出来，并在平面内对像素进行插值操作。（对于镜面反射的效果体现不佳）</li>
-<li>Phong Shading(像素点渲染)：对于每一个像素进行渲染。（Phong Shading <span class="katex"><span class="katex-mathml"><math><semantics><mrow><mpadded width="0px"><mo></mo></mpadded><mo>=</mo></mrow><annotation encoding="application/x-tex">\not =</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.8888799999999999em;vertical-align:-0.19444em;"></span><span class="mrel"><span class="mord"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.69444em;"><span style="top:-3em;"><span class="pstrut" style="height:3em;"></span><span class="rlap"><span class="strut" style="height:0.8888799999999999em;vertical-align:-0.19444em;"></span><span class="inner"><span class="mrel"></span></span><span class="fix"></span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.19444em;"><span></span></span></span></span></span></span></span><span class="base"><span class="strut" style="height:0.36687em;vertical-align:0em;"></span><span class="mrel">=</span></span></span></span> Bling-Phong）</li>
+<li>Phong Shading(像素点渲染)：对于每一个像素进行渲染，渲染依托的法线由顶点方程插值得到。（Phong Shading <span class="katex"><span class="katex-mathml"><math><semantics><mrow><mpadded width="0px"><mo></mo></mpadded><mo>=</mo></mrow><annotation encoding="application/x-tex">\not =</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.8888799999999999em;vertical-align:-0.19444em;"></span><span class="mrel"><span class="mord"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.69444em;"><span style="top:-3em;"><span class="pstrut" style="height:3em;"></span><span class="rlap"><span class="strut" style="height:0.8888799999999999em;vertical-align:-0.19444em;"></span><span class="inner"><span class="mrel"></span></span><span class="fix"></span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.19444em;"><span></span></span></span></span></span></span></span><span class="base"><span class="strut" style="height:0.36687em;vertical-align:0em;"></span><span class="mrel">=</span></span></span></span> Bling-Phong）</li>
 </ol>
 ]]></content>
     </entry>
