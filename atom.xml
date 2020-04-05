@@ -2,7 +2,7 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
     <id>https://dream1ce.github.io</id>
     <title>Learning Bolg</title>
-    <updated>2020-04-05T01:48:41.544Z</updated>
+    <updated>2020-04-05T09:34:27.013Z</updated>
     <generator>https://github.com/jpmonette/feed</generator>
     <link rel="alternate" href="https://dream1ce.github.io"/>
     <link rel="self" href="https://dream1ce.github.io/atom.xml"/>
@@ -36,11 +36,11 @@
 <strong>n(平面法向量):</strong> n为平面法向量<br>
 3、光线到照射点时的强度<span class="katex"><span class="katex-mathml"><math><semantics><mrow><mfrac><mi>I</mi><msup><mi>r</mi><mn>2</mn></msup></mfrac></mrow><annotation encoding="application/x-tex">\frac{I}{r^{2}}</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1.217331em;vertical-align:-0.345em;"></span><span class="mord"><span class="mopen nulldelimiter"></span><span class="mfrac"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.872331em;"><span style="top:-2.6550000000000002em;"><span class="pstrut" style="height:3em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mtight"><span class="mord mathdefault mtight" style="margin-right:0.02778em;">r</span><span class="msupsub"><span class="vlist-t"><span class="vlist-r"><span class="vlist" style="height:0.7463142857142857em;"><span style="top:-2.786em;margin-right:0.07142857142857144em;"><span class="pstrut" style="height:2.5em;"></span><span class="sizing reset-size3 size1 mtight"><span class="mord mtight"><span class="mord mtight">2</span></span></span></span></span></span></span></span></span></span></span></span><span style="top:-3.23em;"><span class="pstrut" style="height:3em;"></span><span class="frac-line" style="border-bottom-width:0.04em;"></span></span><span style="top:-3.394em;"><span class="pstrut" style="height:3em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mathdefault mtight" style="margin-right:0.07847em;">I</span></span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.345em;"><span></span></span></span></span></span><span class="mclose nulldelimiter"></span></span></span></span></span></p>
 <h4 id="amibent环境光">Amibent(环境光)</h4>
-<p>环境光从四面八方折射而来，在本次教学的模型中简单的用一个常系数乘以光照强度来表示环境光。<br>
-#注意事项<br>
-以上所有的光照效果参考的均为Bling-Phong 反射模型，对于其他的模型可能有其他的计算方法，具体在什么时候用什么模型要参考具体情况来编制shader。<br>
-#Rendering(光照的渲染方式)<br>
-光照一共有三种渲染的方式在此只是做简单的介绍：</p>
+<p>环境光从四面八方折射而来，在本次教学的模型中简单的用一个常系数乘以光照强度来表示环境光。</p>
+<h1 id="注意事项">注意事项</h1>
+<p>以上所有的光照效果参考的均为Bling-Phong 反射模型，对于其他的模型可能有其他的计算方法，具体在什么时候用什么模型要参考具体情况来编制shader。</p>
+<h1 id="rendering光照的渲染方式">Rendering(光照的渲染方式)</h1>
+<p>光照一共有三种渲染的方式在此只是做简单的介绍：</p>
 <ol>
 <li>Flat Shading(平面渲染)：在平面取某个特定点用此点来表示整个面的渲染效果。（在面不是很多的时候效果不佳，在片面很多时效果向Phong Shading 趋近）</li>
 <li>Gouraud Shading（顶点渲染）：将顶点的光照计算出来，并在平面内对像素进行插值操作。（对于镜面反射的效果体现不佳）</li>
