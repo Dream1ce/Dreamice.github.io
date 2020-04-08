@@ -13,7 +13,7 @@
      <div class="sidebar animated fadeInDown">
    <div class="logo-title">
     <div class="title">
-     <img src="https://dream1ce.github.io/images/avatar.png?v=1586318387355" style="width:127px;" />
+     <img src="https://dream1ce.github.io/images/avatar.png?v=1586318513847" style="width:127px;" />
 
      <div class="description">
       <p>温故而知新</p>
@@ -98,14 +98,14 @@
 <p>三角形对应分割面积之比即为重心坐标。（PS:网上可查）</p>
 <h1 id="映射产生的问题">映射产生的问题</h1>
 <p>在映射的过程中会产生一些问题比如材质过大或者材质过小的问题。</p>
-<h4 id="问题材质过小-解决材质放大">问题：材质过小 解决：材质放大</h4>
+<h3 id="问题材质过小-解决材质放大">问题：材质过小 解决：材质放大</h3>
 <h5 id="就近nearst">就近（Nearst）</h5>
 <p>这个就直接把离得最近的一个点的颜色拿来做填充就好了。（最简单）</p>
 <h5 id="双线性插值biliner-interpolation">双线性插值（Biliner interpolation）</h5>
 <p>这个插值就是在两个方向上对最近的点的颜色做一个加权平均。（权值可以自定）</p>
 <h5 id="双三次线性插值bicubic-interpolation">双三次线性插值（Bicubic interpolation）</h5>
 <p>这个思想和双线性插值有点类似但是他用了十六个相邻像素，四个一组，三次方程来进行插值。（计算量最大但是效果也最好，常常用在图片的放大和缩小）</p>
-<h4 id="问题材质过大-解决材质缩小">问题：材质过大 解决：材质缩小</h4>
+<h3 id="问题材质过大-解决材质缩小">问题：材质过大 解决：材质缩小</h3>
 <h5 id="直接放弃法">直接放弃法</h5>
 <p>将被缩去的像素直接丢弃，但是会出现问题，之间说了MSAA可以抗锯齿，这个就有点像MSAA的逆过程，但是会产生锯齿，影响画面效果</p>
 <h5 id="放弃采样法">放弃采样法</h5>
