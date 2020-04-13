@@ -2,7 +2,7 @@
 <html lang="zh-CN">
  <head>
      <meta charset="utf-8" />
-  <title>Shading:lecture 2(Pipeline) | Learning Bolg</title>
+  <title>Geometry：Curve &amp; Surface | Learning Bolg</title>
   <meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" name="viewport" />
   <link rel="stylesheet" href="https://dream1ce.github.io/styles/main.css" />
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.10.0/katex.min.css">
@@ -75,37 +75,30 @@
      <div class="post-page">
       <div class="post animated fadeInDown">
        <div class="post-title">
-        <h3><a>Shading:lecture 2(Pipeline)</a></h3>
+        <h3><a>Geometry：Curve &amp; Surface</a></h3>
        </div>
        <div class="post-content">
-        <p>以下的内容和硬件有些许关系。</p>
-<h1 id="rendering-pipeline渲染管线">Rendering Pipeline(渲染管线)</h1>
-<p>渲染管线又称渲染流水线，顾名思义其是用来表示从三维模型映射到二维图像直到呈现在屏幕上的整个过程。<br>
-其大致的流程为：<strong>顶点数据-&gt;顶点着色器-&gt;曲面细分-&gt;几何着色器-&gt;图元组装-&gt;光栅化-&gt;片段着色器-&gt;测试混合阶段</strong></p>
-<h4 id="顶点数据">顶点数据：</h4>
-<p>顶点数据用来为后面的其他阶段提供顶点信息，用于后期的绘制。<br>
-要注意的是在顶点数据阶段要向相应的图形图像接口表明是什么图元：常见的图元为点、线、三角面</p>
-<h4 id="顶点着色器">顶点着色器：</h4>
-<p>顶点着色器最主要进行坐标变换，从局部坐标到世界坐标、观测坐标、剪裁坐标的变换。在一些渲染方式中也会用来计算顶点的光照信息，如Groudaud Shading模型，但是效果不佳不常用。</p>
-<h4 id="曲面细分">曲面细分：</h4>
-<p>用镶嵌化技术对三角面进行细分，来增加三角面的个数。</p>
-<h4 id="图元组装">图元组装：</h4>
-<p>将输入的顶点信息组装成图元。</p>
-<h4 id="光栅化">光栅化：</h4>
-<p>将图形由连续转化为离散的像素点的过程。</p>
-<h4 id="片段着色器">片段着色器：</h4>
-<p>用来计算光照等其他可计算因素，来呈现屏幕上像素点最后的颜色。<br>
-##注意：<br>
-渲染管线的流程在不同的教科书中有不同的流程，以上划分仅仅为其中一个版本。</p>
-<h1 id="shader着色器">Shader（着色器）</h1>
-<p>Shader 中文名称为着色器，通俗的来讲就是负责绘制图像的内容的一种GPU程序。<br>
-对于图形学来讲常用的Shader为Vertex Shader 和 Fragment Shader。<br>
-以下列出其他Shader类型权当扩展：</p>
+        <p>在物体几何的表示中，一共有两种表示方法：隐式表示法和显式表示法。</p>
+<h1 id="隐式表示法">隐式表示法</h1>
 <ol>
-<li>Geometry Shader：用来对于几何图形进行计算。</li>
-<li>Compute Shader：一种通用的计算单元，能计算一些更复杂的逻辑。<br>
-#显卡中的相应硬件：<br>
-显卡中有大量的运算单元，用来专门执行相应类型的Shader，其处理器的类型均为SIMD（并不严谨），能在同时做大量并行的计算。</li>
+<li>用数学公式表示如：圆的数学公式、球的数学公式....</li>
+<li>CSG(Constractive Solid Geometry) 思想就是用最基本的图形去表示复杂图形，常用Boolean运算来表示图形。</li>
+<li>Distance Function(距离公式) 也是基本图形组合，但是利用距离向量场可以得到更加圆滑的组合，算是一种扩充，但是不代表可以取代CSG。</li>
+<li>分形 数学上用的多一些比如雪花、松树之类的。</li>
+</ol>
+<h1 id="显式表示">显式表示</h1>
+<ol>
+<li><strong>点云</strong> ：将模型用很多密集的点表示。不常用</li>
+<li><strong>多边形面</strong>：常用会形成obj文件，3DMax、Maya等建模软件常用。</li>
+<li><strong>Bezier Curve</strong> ： 使用几个控制点来表示一条曲线，简单理解：点在t变化的同时处于不同的位置，关于参数t的一个表达式。贝塞尔曲线恒一些特别的性质1.其一定经过控制点的起点和终点。2、仿射不变性：其在做仿射变换的时候，直接将线做仿射等于先将控制点做仿射变换在由变换后的点划线。3、凸包性质，贝塞尔曲线已知在以控制点形成的凸包中。</li>
+<li><strong>Piecewise Bezier Curve</strong> : 逐段的贝塞尔曲线，为什么会有逐段的贝塞尔曲线呢？因为贝塞尔曲线不存在局部调整的性质，每当调整一个控制点就要对整个曲线进行调整，所以逐段的贝塞尔曲线因此而生，当然除了逐段的贝塞尔还有B-Splines等方法可以解决这个问题。</li>
+<li><strong>Bezier Surfaces</strong>： 理解简单就是贝塞尔曲线上的点沿着垂直方向按照另一个贝塞尔曲线扫过就形成了贝塞尔曲面。有点像双线性插值。</li>
+</ol>
+<h1 id="mesh-operation-geometry-processing网格上的操作">Mesh Operation： Geometry Processing（网格上的操作）</h1>
+<ol>
+<li><strong>网格细分</strong> ：由一个多边形形成更多的多边形，来让细节更丰富。</li>
+<li><strong>网格简化</strong> ：和上面的网格细分相反，是为了追求更高的性能将多变形数量减少。</li>
+<li><strong>网格正规化</strong> ：让网格的每个三角形都趋于正三角形。会有很多好的性质。</li>
 </ol>
 
        </div>
@@ -113,7 +106,7 @@
         <div class="meta">
          <div class="info">
           <i class="fa fa-sun-o"></i>
-          <span class="date">2020-04-05</span>
+          <span class="date">2020-04-09</span>
           <i class="fa fa-tag"></i>
           
           <a class="tag" href="https://dream1ce.github.io/tag/VGwmGlzjv/" title="计算机图形学">计算机图形学 </a>
@@ -130,16 +123,16 @@
         <a class="fa fa-weibo" href="javascript:void((function(s,d,e){try{}catch(e){}var f='http://service.weibo.com/share/share.php?',u=d.location.href,p=['url=',e(u),'&amp;title=',e(d.title),'&amp;appkey=2924220432'].join('');function a(){if(!window.open([f,p].join(''),'mb',['toolbar=0,status=0,resizable=1,width=620,height=450,left=',(s.width-620)/2,',top=',(s.height-450)/2].join('')))u.href=[f,p].join('');};if(/Firefox/.test(navigator.userAgent)){setTimeout(a,0)}else{a()}})(screen,document,encodeURIComponent));"></a>
        </div>
        <div class="twitter">
-        <a class="fa fa-twitter" href="http://twitter.com/home?status=,https://dream1ce.github.io/post/shadinglecture2pipeline/,;"></a>
+        <a class="fa fa-twitter" href="http://twitter.com/home?status=,https://dream1ce.github.io/post/geometry/,;"></a>
        </div>
       </div>
       <div class="pagination">
        <ul class="clearfix">
 
-        <li class="pre pagbuttons"><a class="btn" role="navigation" href="https://dream1ce.github.io/post/shadinglecture-3texture-mapping/" title="Shading:lecture 3(Texture Mapping)">上一篇</a></li>
+        <li class="pre pagbuttons"><a class="btn" role="navigation" href="https://dream1ce.github.io/post/geometry-mesh-operation/" title="Geometry: Mesh Operation">上一篇</a></li>
          
         
-        <li class="next pagbuttons"><a class="btn" role="navigation" href="https://dream1ce.github.io/post/shading-lecture-1illumination/" title=" Shading:lecture 1(Illumination)">下一篇</a></li>
+        <li class="next pagbuttons"><a class="btn" role="navigation" href="https://dream1ce.github.io/post/shadinglecture-3texture-mapping/" title=" Shading:lecture 3(Texture Mapping)">下一篇</a></li>
         
        </ul>
       </div>

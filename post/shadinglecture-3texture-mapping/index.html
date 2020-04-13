@@ -13,7 +13,7 @@
      <div class="sidebar animated fadeInDown">
    <div class="logo-title">
     <div class="title">
-     <img src="https://dream1ce.github.io/images/avatar.png?v=1586318513847" style="width:127px;" />
+     <img src="https://dream1ce.github.io/images/avatar.png?v=1586787930375" style="width:127px;" />
 
      <div class="description">
       <p>温故而知新</p>
@@ -118,6 +118,13 @@
 <img src="https://dream1ce.github.io/post-images/1586318290370.png" alt="" loading="lazy"></p>
 <h5 id="ewa-filtering">EWA Filtering</h5>
 <p>这个更加复杂是用圆形来覆盖原来不规则的形状。</p>
+<h1 id="在做shading时的其他技术">在做Shading时的其他技术</h1>
+<p>####Enviroment Map(环境贴图)<br>
+环境贴图主要是用来解决同一个物体，有一部分的光被自己挡住了，一般在比较写实的风格中会用到。Environment Map 记录了纹理上的相对高度，可以用来计算光是否被其一部分挡住了。<br>
+####Bump Map(法线贴图)<br>
+法线贴图是用来在不增加三角形的前提下，来使整个图形看上去有更多的纹理，但是有一个缺点就是在图形 的边缘位置会露陷，毕竟产生的不是真的凹凸形状。</p>
+<h4 id="displacement-map">Displacement Map</h4>
+<p>和法线贴图类似但是其是真的将形状发生了改变，用了曲面细分的相关技术。</p>
 
        </div>
        <div class="post-footer">
@@ -126,6 +133,8 @@
           <i class="fa fa-sun-o"></i>
           <span class="date">2020-04-08</span>
           <i class="fa fa-tag"></i>
+          
+          <a class="tag" href="https://dream1ce.github.io/tag/VGwmGlzjv/" title="计算机图形学">计算机图形学 </a>
           
          </div>
         </div>
@@ -145,6 +154,8 @@
       <div class="pagination">
        <ul class="clearfix">
 
+        <li class="pre pagbuttons"><a class="btn" role="navigation" href="https://dream1ce.github.io/post/geometry/" title="Geometry：Curve &amp; Surface">上一篇</a></li>
+         
         
         <li class="next pagbuttons"><a class="btn" role="navigation" href="https://dream1ce.github.io/post/shadinglecture2pipeline/" title=" Shading:lecture 2(Pipeline)">下一篇</a></li>
         

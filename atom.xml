@@ -2,7 +2,7 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
     <id>https://dream1ce.github.io</id>
     <title>Learning Bolg</title>
-    <updated>2020-04-08T04:01:56.427Z</updated>
+    <updated>2020-04-13T14:25:36.940Z</updated>
     <generator>https://github.com/jpmonette/feed</generator>
     <link rel="alternate" href="https://dream1ce.github.io"/>
     <link rel="self" href="https://dream1ce.github.io/atom.xml"/>
@@ -10,6 +10,52 @@
     <logo>https://dream1ce.github.io/images/avatar.png</logo>
     <icon>https://dream1ce.github.io/favicon.ico</icon>
     <rights>All rights reserved 2020, Learning Bolg</rights>
+    <entry>
+        <title type="html"><![CDATA[Geometry: Mesh Operation]]></title>
+        <id>https://dream1ce.github.io/post/geometry-mesh-operation/</id>
+        <link href="https://dream1ce.github.io/post/geometry-mesh-operation/">
+        </link>
+        <updated>2020-04-13T14:05:47.000Z</updated>
+        <content type="html"><![CDATA[<h1 id="mesh-subdivision曲面细分">Mesh Subdivision（曲面细分）</h1>
+<h3 id="loop-subdivisionloop细分">Loop Subdivision（Loop细分）</h3>
+<p>Loop subdivision 是针对三角形面片而做的一种细分方法。<br>
+<strong>第一步</strong> 把每条边的中点作为一个新的点。新的点在一条边上，一条边必定被两个三角形共享，在此定义被两个三角形共享的两个点为近点，剩余两个为远点。<br>
+<strong>第二步</strong> 依照一定的规则更新新的点和旧的点相应坐标。<br>
+<strong>更新规则如下</strong> 新点 = <span class="katex"><span class="katex-mathml"><math><semantics><mrow><mfrac><mn>1</mn><mn>8</mn></mfrac></mrow><annotation encoding="application/x-tex">\frac{1}{8}</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1.190108em;vertical-align:-0.345em;"></span><span class="mord"><span class="mopen nulldelimiter"></span><span class="mfrac"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.845108em;"><span style="top:-2.6550000000000002em;"><span class="pstrut" style="height:3em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mtight">8</span></span></span></span><span style="top:-3.23em;"><span class="pstrut" style="height:3em;"></span><span class="frac-line" style="border-bottom-width:0.04em;"></span></span><span style="top:-3.394em;"><span class="pstrut" style="height:3em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mtight">1</span></span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.345em;"><span></span></span></span></span></span><span class="mclose nulldelimiter"></span></span></span></span></span>远点之和+<span class="katex"><span class="katex-mathml"><math><semantics><mrow><mfrac><mn>3</mn><mn>8</mn></mfrac></mrow><annotation encoding="application/x-tex">\frac{3}{8}</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1.190108em;vertical-align:-0.345em;"></span><span class="mord"><span class="mopen nulldelimiter"></span><span class="mfrac"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.845108em;"><span style="top:-2.6550000000000002em;"><span class="pstrut" style="height:3em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mtight">8</span></span></span></span><span style="top:-3.23em;"><span class="pstrut" style="height:3em;"></span><span class="frac-line" style="border-bottom-width:0.04em;"></span></span><span style="top:-3.394em;"><span class="pstrut" style="height:3em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mtight">3</span></span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.345em;"><span></span></span></span></span></span><span class="mclose nulldelimiter"></span></span></span></span></span>近点之和        旧点 = <span class="katex"><span class="katex-mathml"><math><semantics><mrow><mo>(</mo><mn>1</mn><mo>−</mo><mi>n</mi><mo>∗</mo><mi>u</mi><mo>)</mo><mi mathvariant="normal">自</mi><mi mathvariant="normal">己</mi><mo>+</mo><mi>u</mi><mo>∗</mo><mo>(</mo><mi mathvariant="normal">相</mi><mi mathvariant="normal">邻</mi><mi mathvariant="normal">点</mi><mi mathvariant="normal">之</mi><mi mathvariant="normal">和</mi><mo>)</mo></mrow><annotation encoding="application/x-tex">(1-n*u)自己+u*(相邻点之和)</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mopen">(</span><span class="mord">1</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span><span class="mbin">−</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span></span><span class="base"><span class="strut" style="height:0.46528em;vertical-align:0em;"></span><span class="mord mathdefault">n</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span><span class="mbin">∗</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span></span><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord mathdefault">u</span><span class="mclose">)</span><span class="mord cjk_fallback">自</span><span class="mord cjk_fallback">己</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span><span class="mbin">+</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span></span><span class="base"><span class="strut" style="height:0.46528em;vertical-align:0em;"></span><span class="mord mathdefault">u</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span><span class="mbin">∗</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span></span><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mopen">(</span><span class="mord cjk_fallback">相</span><span class="mord cjk_fallback">邻</span><span class="mord cjk_fallback">点</span><span class="mord cjk_fallback">之</span><span class="mord cjk_fallback">和</span><span class="mclose">)</span></span></span></span></p>
+<h3 id="catmall-clark-subdivision">Catmall-Clark Subdivision</h3>
+<p>Catmall-Clark Subdivision 是针对一般平面更加通用的方法。（PS:Catmall是2020的图灵奖得主）</p>
+]]></content>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[Geometry：Curve & Surface]]></title>
+        <id>https://dream1ce.github.io/post/geometry/</id>
+        <link href="https://dream1ce.github.io/post/geometry/">
+        </link>
+        <updated>2020-04-09T14:18:03.000Z</updated>
+        <content type="html"><![CDATA[<p>在物体几何的表示中，一共有两种表示方法：隐式表示法和显式表示法。</p>
+<h1 id="隐式表示法">隐式表示法</h1>
+<ol>
+<li>用数学公式表示如：圆的数学公式、球的数学公式....</li>
+<li>CSG(Constractive Solid Geometry) 思想就是用最基本的图形去表示复杂图形，常用Boolean运算来表示图形。</li>
+<li>Distance Function(距离公式) 也是基本图形组合，但是利用距离向量场可以得到更加圆滑的组合，算是一种扩充，但是不代表可以取代CSG。</li>
+<li>分形 数学上用的多一些比如雪花、松树之类的。</li>
+</ol>
+<h1 id="显式表示">显式表示</h1>
+<ol>
+<li><strong>点云</strong> ：将模型用很多密集的点表示。不常用</li>
+<li><strong>多边形面</strong>：常用会形成obj文件，3DMax、Maya等建模软件常用。</li>
+<li><strong>Bezier Curve</strong> ： 使用几个控制点来表示一条曲线，简单理解：点在t变化的同时处于不同的位置，关于参数t的一个表达式。贝塞尔曲线恒一些特别的性质1.其一定经过控制点的起点和终点。2、仿射不变性：其在做仿射变换的时候，直接将线做仿射等于先将控制点做仿射变换在由变换后的点划线。3、凸包性质，贝塞尔曲线已知在以控制点形成的凸包中。</li>
+<li><strong>Piecewise Bezier Curve</strong> : 逐段的贝塞尔曲线，为什么会有逐段的贝塞尔曲线呢？因为贝塞尔曲线不存在局部调整的性质，每当调整一个控制点就要对整个曲线进行调整，所以逐段的贝塞尔曲线因此而生，当然除了逐段的贝塞尔还有B-Splines等方法可以解决这个问题。</li>
+<li><strong>Bezier Surfaces</strong>： 理解简单就是贝塞尔曲线上的点沿着垂直方向按照另一个贝塞尔曲线扫过就形成了贝塞尔曲面。有点像双线性插值。</li>
+</ol>
+<h1 id="mesh-operation-geometry-processing网格上的操作">Mesh Operation： Geometry Processing（网格上的操作）</h1>
+<ol>
+<li><strong>网格细分</strong> ：由一个多边形形成更多的多边形，来让细节更丰富。</li>
+<li><strong>网格简化</strong> ：和上面的网格细分相反，是为了追求更高的性能将多变形数量减少。</li>
+<li><strong>网格正规化</strong> ：让网格的每个三角形都趋于正三角形。会有很多好的性质。</li>
+</ol>
+]]></content>
+    </entry>
     <entry>
         <title type="html"><![CDATA[Shading:lecture 3(Texture Mapping)]]></title>
         <id>https://dream1ce.github.io/post/shadinglecture-3texture-mapping/</id>
@@ -56,6 +102,13 @@
 <img src="https://dream1ce.github.io/post-images/1586318290370.png" alt="" loading="lazy"></p>
 <h5 id="ewa-filtering">EWA Filtering</h5>
 <p>这个更加复杂是用圆形来覆盖原来不规则的形状。</p>
+<h1 id="在做shading时的其他技术">在做Shading时的其他技术</h1>
+<p>####Enviroment Map(环境贴图)<br>
+环境贴图主要是用来解决同一个物体，有一部分的光被自己挡住了，一般在比较写实的风格中会用到。Environment Map 记录了纹理上的相对高度，可以用来计算光是否被其一部分挡住了。<br>
+####Bump Map(法线贴图)<br>
+法线贴图是用来在不增加三角形的前提下，来使整个图形看上去有更多的纹理，但是有一个缺点就是在图形 的边缘位置会露陷，毕竟产生的不是真的凹凸形状。</p>
+<h4 id="displacement-map">Displacement Map</h4>
+<p>和法线贴图类似但是其是真的将形状发生了改变，用了曲面细分的相关技术。</p>
 ]]></content>
     </entry>
     <entry>
