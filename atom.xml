@@ -2,7 +2,7 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
     <id>https://dream1ce.github.io</id>
     <title>Learning Bolg</title>
-    <updated>2020-04-15T07:01:51.625Z</updated>
+    <updated>2020-04-15T14:32:50.794Z</updated>
     <generator>https://github.com/jpmonette/feed</generator>
     <link rel="alternate" href="https://dream1ce.github.io"/>
     <link rel="self" href="https://dream1ce.github.io/atom.xml"/>
@@ -10,6 +10,38 @@
     <logo>https://dream1ce.github.io/images/avatar.png</logo>
     <icon>https://dream1ce.github.io/favicon.ico</icon>
     <rights>All rights reserved 2020, Learning Bolg</rights>
+    <entry>
+        <title type="html"><![CDATA[Ray Tracing:Whitted-Style]]></title>
+        <id>https://dream1ce.github.io/post/ray-tracingwhitted-style/</id>
+        <link href="https://dream1ce.github.io/post/ray-tracingwhitted-style/">
+        </link>
+        <updated>2020-04-15T12:31:04.000Z</updated>
+        <summary type="html"><![CDATA[<p>未完待续</p>
+]]></summary>
+        <content type="html"><![CDATA[<p>未完待续</p>
+<!-- more -->
+<p>在了解光线追踪之前，先要明白光栅化的阴影是怎么做的，有什么缺陷。</p>
+<h1 id="shadow-mapping光栅化的阴影">Shadow Mapping（光栅化的阴影）</h1>
+<p><strong>主要思想：</strong> 所谓阴影就是你看的到但是光看不到的部分。<br>
+<strong>处理步骤：</strong> 根据主要思想那么很容易的出如何产生阴影，就是先将camera防止在光源出进行一次观测，记录场景的深度，之后再把camera放在实际视角位置进行观测，最后在进行光栅化的时候查询对应像素的深度看是否被物体遮挡，没被遮挡的就正常显示，否则为阴影。<br>
+<strong>缺陷：</strong></p>
+<ol>
+<li>阴影质量取决于Shadow Mapping 的采样点个数如果采样点太少那么就会在阴影产生锯齿，采样点过多就需要大量的计算。</li>
+<li>Shadow Mapping 只能用于单个点光源。（PS： 有一些处理的方法可以用于多个点光源，但是计算量会大幅增加，直到不可控）。</li>
+<li>阴影边缘明显无法生成软阴影，根据思想易得，而显示中大部分是软阴影。<br>
+由以上的缺点我们直到，最好让光线决定我们能看到什么而不是设计一种简化模型来计算物体表面是什么颜色。<br>
+#Whitted-Style Ray Tracing<br>
+首先我们要明白光线追踪，光线有什么性质。<br>
+###光线的性质</li>
+<li>沿直线传播</li>
+<li>光线与光线之间不会发生碰撞。（这条仅限与一些简单的模型，复杂模型中还会考虑光的波动性）</li>
+<li>如果有一条光线能从光源到眼睛，那么也能找到一条射线从眼睛到光源，且这两条路线相等。</li>
+</ol>
+<h3 id="光追思想">光追思想</h3>
+<p>由以上的光的性质那么思想就很容易确定下来，从Camera出发每个像素点发射一条射线，由射线打到的面上的某点计算光源对于这个点应该反应的是什么颜色，同时射线还会反射，这点也要计算。那么问题就被分解为求光线和表面的交点，求出焦点像素的颜色。最后显示的颜色即可。<br>
+颜色其实无所谓由Texture来决定颜色，实际上的问题是求光线和表面的交点。</p>
+]]></content>
+    </entry>
     <entry>
         <title type="html"><![CDATA[Geometry: Mesh Operation]]></title>
         <id>https://dream1ce.github.io/post/geometry-mesh-operation/</id>

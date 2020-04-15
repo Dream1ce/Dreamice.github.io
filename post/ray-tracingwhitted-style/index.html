@@ -2,7 +2,7 @@
 <html lang="zh-CN">
  <head>
      <meta charset="utf-8" />
-  <title>Geometry：Curve &amp; Surface | Learning Bolg</title>
+  <title>Ray Tracing:Whitted-Style | Learning Bolg</title>
   <meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" name="viewport" />
   <link rel="stylesheet" href="https://dream1ce.github.io/styles/main.css" />
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.10.0/katex.min.css">
@@ -75,38 +75,38 @@
      <div class="post-page">
       <div class="post animated fadeInDown">
        <div class="post-title">
-        <h3><a>Geometry：Curve &amp; Surface</a></h3>
+        <h3><a>Ray Tracing:Whitted-Style</a></h3>
        </div>
        <div class="post-content">
-        <p>在物体几何的表示中，一共有两种表示方法：隐式表示法和显式表示法。</p>
-<h1 id="隐式表示法">隐式表示法</h1>
+        <p>未完待续</p>
+<!-- more -->
+<p>在了解光线追踪之前，先要明白光栅化的阴影是怎么做的，有什么缺陷。</p>
+<h1 id="shadow-mapping光栅化的阴影">Shadow Mapping（光栅化的阴影）</h1>
+<p><strong>主要思想：</strong> 所谓阴影就是你看的到但是光看不到的部分。<br>
+<strong>处理步骤：</strong> 根据主要思想那么很容易的出如何产生阴影，就是先将camera防止在光源出进行一次观测，记录场景的深度，之后再把camera放在实际视角位置进行观测，最后在进行光栅化的时候查询对应像素的深度看是否被物体遮挡，没被遮挡的就正常显示，否则为阴影。<br>
+<strong>缺陷：</strong></p>
 <ol>
-<li>用数学公式表示如：圆的数学公式、球的数学公式....</li>
-<li>CSG(Constractive Solid Geometry) 思想就是用最基本的图形去表示复杂图形，常用Boolean运算来表示图形。</li>
-<li>Distance Function(距离公式) 也是基本图形组合，但是利用距离向量场可以得到更加圆滑的组合，算是一种扩充，但是不代表可以取代CSG。</li>
-<li>分形 数学上用的多一些比如雪花、松树之类的。</li>
+<li>阴影质量取决于Shadow Mapping 的采样点个数如果采样点太少那么就会在阴影产生锯齿，采样点过多就需要大量的计算。</li>
+<li>Shadow Mapping 只能用于单个点光源。（PS： 有一些处理的方法可以用于多个点光源，但是计算量会大幅增加，直到不可控）。</li>
+<li>阴影边缘明显无法生成软阴影，根据思想易得，而显示中大部分是软阴影。<br>
+由以上的缺点我们直到，最好让光线决定我们能看到什么而不是设计一种简化模型来计算物体表面是什么颜色。<br>
+#Whitted-Style Ray Tracing<br>
+首先我们要明白光线追踪，光线有什么性质。<br>
+###光线的性质</li>
+<li>沿直线传播</li>
+<li>光线与光线之间不会发生碰撞。（这条仅限与一些简单的模型，复杂模型中还会考虑光的波动性）</li>
+<li>如果有一条光线能从光源到眼睛，那么也能找到一条射线从眼睛到光源，且这两条路线相等。</li>
 </ol>
-<h1 id="显式表示">显式表示</h1>
-<ol>
-<li><strong>点云</strong> ：将模型用很多密集的点表示。不常用</li>
-<li><strong>多边形面</strong>：常用会形成obj文件，3DMax、Maya等建模软件常用。</li>
-<li><strong>Bezier Curve</strong> ： 使用几个控制点来表示一条曲线，简单理解：点在t变化的同时处于不同的位置，关于参数t的一个表达式。贝塞尔曲线恒一些特别的性质1.其一定经过控制点的起点和终点。2、仿射不变性：其在做仿射变换的时候，直接将线做仿射等于先将控制点做仿射变换在由变换后的点划线。3、凸包性质，贝塞尔曲线已知在以控制点形成的凸包中。</li>
-<li><strong>Piecewise Bezier Curve</strong> : 逐段的贝塞尔曲线，为什么会有逐段的贝塞尔曲线呢？因为贝塞尔曲线不存在局部调整的性质，每当调整一个控制点就要对整个曲线进行调整，所以逐段的贝塞尔曲线因此而生，当然除了逐段的贝塞尔还有B-Splines等方法可以解决这个问题。</li>
-<li><strong>Bezier Surfaces</strong>： 理解简单就是贝塞尔曲线上的点沿着垂直方向按照另一个贝塞尔曲线扫过就形成了贝塞尔曲面。有点像双线性插值。</li>
-</ol>
-<h1 id="mesh-operation-geometry-processing网格上的操作">Mesh Operation： Geometry Processing（网格上的操作）</h1>
-<ol>
-<li><strong>网格细分</strong> ：由一个多边形形成更多的多边形，来让细节更丰富。</li>
-<li><strong>网格简化</strong> ：和上面的网格细分相反，是为了追求更高的性能将多变形数量减少。</li>
-<li><strong>网格正规化</strong> ：让网格的每个三角形都趋于正三角形。会有很多好的性质。</li>
-</ol>
+<h3 id="光追思想">光追思想</h3>
+<p>由以上的光的性质那么思想就很容易确定下来，从Camera出发每个像素点发射一条射线，由射线打到的面上的某点计算光源对于这个点应该反应的是什么颜色，同时射线还会反射，这点也要计算。那么问题就被分解为求光线和表面的交点，求出焦点像素的颜色。最后显示的颜色即可。<br>
+颜色其实无所谓由Texture来决定颜色，实际上的问题是求光线和表面的交点。</p>
 
        </div>
        <div class="post-footer">
         <div class="meta">
          <div class="info">
           <i class="fa fa-sun-o"></i>
-          <span class="date">2020-04-09</span>
+          <span class="date">2020-04-15</span>
           <i class="fa fa-tag"></i>
           
           <a class="tag" href="https://dream1ce.github.io/tag/VGwmGlzjv/" title="计算机图形学">计算机图形学 </a>
@@ -123,16 +123,14 @@
         <a class="fa fa-weibo" href="javascript:void((function(s,d,e){try{}catch(e){}var f='http://service.weibo.com/share/share.php?',u=d.location.href,p=['url=',e(u),'&amp;title=',e(d.title),'&amp;appkey=2924220432'].join('');function a(){if(!window.open([f,p].join(''),'mb',['toolbar=0,status=0,resizable=1,width=620,height=450,left=',(s.width-620)/2,',top=',(s.height-450)/2].join('')))u.href=[f,p].join('');};if(/Firefox/.test(navigator.userAgent)){setTimeout(a,0)}else{a()}})(screen,document,encodeURIComponent));"></a>
        </div>
        <div class="twitter">
-        <a class="fa fa-twitter" href="http://twitter.com/home?status=,https://dream1ce.github.io/post/geometry/,;"></a>
+        <a class="fa fa-twitter" href="http://twitter.com/home?status=,https://dream1ce.github.io/post/ray-tracingwhitted-style/,;"></a>
        </div>
       </div>
       <div class="pagination">
        <ul class="clearfix">
 
-        <li class="pre pagbuttons"><a class="btn" role="navigation" href="https://dream1ce.github.io/post/geometry-mesh-operation/" title="Geometry: Mesh Operation">上一篇</a></li>
-         
         
-        <li class="next pagbuttons"><a class="btn" role="navigation" href="https://dream1ce.github.io/post/shadinglecture-3texture-mapping/" title=" Shading:lecture 3(Texture Mapping)">下一篇</a></li>
+        <li class="next pagbuttons"><a class="btn" role="navigation" href="https://dream1ce.github.io/post/geometry-mesh-operation/" title=" Geometry: Mesh Operation">下一篇</a></li>
         
        </ul>
       </div>
