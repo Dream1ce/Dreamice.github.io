@@ -2,7 +2,7 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
     <id>https://dream1ce.github.io</id>
     <title>Learning Bolg</title>
-    <updated>2020-04-18T02:07:11.967Z</updated>
+    <updated>2020-04-22T14:32:09.460Z</updated>
     <generator>https://github.com/jpmonette/feed</generator>
     <link rel="alternate" href="https://dream1ce.github.io"/>
     <link rel="self" href="https://dream1ce.github.io/atom.xml"/>
@@ -10,6 +10,34 @@
     <logo>https://dream1ce.github.io/images/avatar.png</logo>
     <icon>https://dream1ce.github.io/favicon.ico</icon>
     <rights>All rights reserved 2020, Learning Bolg</rights>
+    <entry>
+        <title type="html"><![CDATA[Ray Tracing: Radiometric]]></title>
+        <id>https://dream1ce.github.io/post/ray-tracing-radiometric/</id>
+        <link href="https://dream1ce.github.io/post/ray-tracing-radiometric/">
+        </link>
+        <updated>2020-04-18T02:09:31.000Z</updated>
+        <content type="html"><![CDATA[<p>过去的光线追踪计算光照传播的算法往往只是简单的遇到镜面反射面就反弹，遇到漫反射面就吸收不反弹，但是真实的光线反射并不是如此，因此要引入在物理发明发现的辐射度量学，来让光线的显示更加的真实。</p>
+<h1 id="名词介绍">名词介绍</h1>
+<p><strong>Radiant flux（辐射通量）、Intensity(强度)、Irradiance（辐照度）、radiance（辐射率）</strong></p>
+<h3 id="radiant-flux">Radiant flux</h3>
+<p>Radiant flux 是表示每单位时间的辐射能量，亦作“辐射功率”。单位是：瓦特</p>
+<h3 id="intensity">Intensity</h3>
+<p>Intensity 是指每单位立体角的辐射通量。单位是：瓦特每球面度。</p>
+<blockquote>
+<p>立体角的定义：立体角是以锥体的顶点为球心作球面，该锥体在球的表面的面积与球半径平方之比，单位为球面度。</p>
+</blockquote>
+<h3 id="irradiance">Irradiance</h3>
+<p>Irradiance是指入射表面的辐射通量。单位是：瓦特每平方米。</p>
+<h3 id="radiance">Radiance</h3>
+<p>Radiance是指每单位立体角每单位投射表面的辐射通量。</p>
+<h3 id="辐射度量学的研究范围">辐射度量学的研究范围</h3>
+<p>辐射度量学大部分的定义都是定义在一个半球面上的，可以这么理解辐射是从四面八方辐射而来，所以对于一个表面上的一个点我们的研究范围自然也是其上面的半球面。实际上辐射度量学的名词还有很多在此不一一列举，以上的名词在光线追踪中已经够用。</p>
+<h1 id="光线追踪中的使用">光线追踪中的使用</h1>
+<p>先要明白以上名词对应光线追踪中的那一部分<br>
+<strong>Radiant Intensity</strong>对应<strong>光线的照射（强度）</strong>、<strong>Irradiance</strong>对应<strong>光线落在平面上</strong>、<strong>Radiance</strong>对应<strong>光线在物体间的辐照</strong>。<br>
+由此我们可以看出作为光线追踪里面最重要的两个概念就是，光线打进去（<strong>Irradiance</strong>）光线再射出来（<strong>Radiance</strong>），由这两个过程我们能得出某个点的颜色具体要如何计算</p>
+]]></content>
+    </entry>
     <entry>
         <title type="html"><![CDATA[Ray Tracing:Whitted-Style]]></title>
         <id>https://dream1ce.github.io/post/ray-tracingwhitted-style/</id>
