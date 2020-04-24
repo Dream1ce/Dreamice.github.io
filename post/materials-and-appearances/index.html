@@ -2,7 +2,7 @@
 <html lang="zh-CN">
  <head>
      <meta charset="utf-8" />
-  <title>Geometry：Curve &amp; Surface | Learning Bolg</title>
+  <title>Materials and Appearances | Learning Bolg</title>
   <meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" name="viewport" />
   <link rel="stylesheet" href="https://dream1ce.github.io/styles/main.css" />
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.10.0/katex.min.css">
@@ -75,41 +75,32 @@
      <div class="post-page">
       <div class="post animated fadeInDown">
        <div class="post-title">
-        <h3><a>Geometry：Curve &amp; Surface</a></h3>
+        <h3><a>Materials and Appearances</a></h3>
        </div>
        <div class="post-content">
-        <p>在物体几何的表示中，一共有两种表示方法：隐式表示法和显式表示法。</p>
-<h1 id="隐式表示法">隐式表示法</h1>
-<ol>
-<li>用数学公式表示如：圆的数学公式、球的数学公式....</li>
-<li>CSG(Constractive Solid Geometry) 思想就是用最基本的图形去表示复杂图形，常用Boolean运算来表示图形。</li>
-<li>Distance Function(距离公式) 也是基本图形组合，但是利用距离向量场可以得到更加圆滑的组合，算是一种扩充，但是不代表可以取代CSG。</li>
-<li>分形 数学上用的多一些比如雪花、松树之类的。</li>
-</ol>
-<h1 id="显式表示">显式表示</h1>
-<ol>
-<li><strong>点云</strong> ：将模型用很多密集的点表示。不常用</li>
-<li><strong>多边形面</strong>：常用会形成obj文件，3DMax、Maya等建模软件常用。</li>
-<li><strong>Bezier Curve</strong> ： 使用几个控制点来表示一条曲线，简单理解：点在t变化的同时处于不同的位置，关于参数t的一个表达式。贝塞尔曲线恒一些特别的性质1.其一定经过控制点的起点和终点。2、仿射不变性：其在做仿射变换的时候，直接将线做仿射等于先将控制点做仿射变换在由变换后的点划线。3、凸包性质，贝塞尔曲线已知在以控制点形成的凸包中。</li>
-<li><strong>Piecewise Bezier Curve</strong> : 逐段的贝塞尔曲线，为什么会有逐段的贝塞尔曲线呢？因为贝塞尔曲线不存在局部调整的性质，每当调整一个控制点就要对整个曲线进行调整，所以逐段的贝塞尔曲线因此而生，当然除了逐段的贝塞尔还有B-Splines等方法可以解决这个问题。</li>
-<li><strong>Bezier Surfaces</strong>： 理解简单就是贝塞尔曲线上的点沿着垂直方向按照另一个贝塞尔曲线扫过就形成了贝塞尔曲面。有点像双线性插值。</li>
-</ol>
-<h1 id="mesh-operation-geometry-processing网格上的操作">Mesh Operation： Geometry Processing（网格上的操作）</h1>
-<ol>
-<li><strong>网格细分</strong> ：由一个多边形形成更多的多边形，来让细节更丰富。</li>
-<li><strong>网格简化</strong> ：和上面的网格细分相反，是为了追求更高的性能将多变形数量减少。</li>
-<li><strong>网格正规化</strong> ：让网格的每个三角形都趋于正三角形。会有很多好的性质。</li>
-</ol>
+        <p>写在最开始：我们在光线追踪之中提到了BRDF（Bidirectional Reflection Distribution Function）,所以我们要明白所谓的Materials就等于BRDF。</p>
+<h1 id="material">Material</h1>
+<h3 id="diffuselambertian-material">Diffuse/Lambertian Material</h3>
+<p>对于一个完全不吸收能量的材质，而且其能量为均匀散发。那么根据公式我们可得：$L_0(https://dream1ce.github.io/post-images/1587699552112.png)</p>
+<h3 id="glossy-material粗糙镜面">Glossy Material（粗糙镜面）</h3>
+<p>粗糙镜面往往可以用来形容抛光的金属。<br>
+<img src="https://dream1ce.github.io/post-images/1587699705306.png" alt="" loading="lazy"></p>
+<h3 id="glasswater-material">Glass/Water Material</h3>
+<figure data-type="image" tabindex="1"><img src="https://dream1ce.github.io/post-images/1587699805827.png" alt="" loading="lazy"></figure>
+<h3 id="microfacet-theory">Microfacet Theory</h3>
+<p>当我们离一个物体很远的时候，我们看物体都是一个平面，只有离近了之后才能看到凹凸不平的表面。即从远处看看到的是外观，近处看看到的才是几何。<br>
+我们可以通过观察微表面的法线分布来，估计远离平面时我们看到的效果，同时我们也可以通过微表面的法线分布来判断物质的粗糙程度。</p>
+<h3 id="isottropicanisotropic-material">Isottropic/Anisotropic Material</h3>
+<p>如果一个材质在一个方向上被打磨，那么其分布的法线向量也会有极大的差别，同一束光线达到上面也会有所不同。<br>
+<img src="https://dream1ce.github.io/post-images/1587702577312.png" alt="" loading="lazy"></p>
 
        </div>
        <div class="post-footer">
         <div class="meta">
          <div class="info">
           <i class="fa fa-sun-o"></i>
-          <span class="date">2020-04-09</span>
+          <span class="date">2020-04-24</span>
           <i class="fa fa-tag"></i>
-          
-          <a class="tag" href="https://dream1ce.github.io/tag/VGwmGlzjv/" title="计算机图形学">计算机图形学 </a>
           
          </div>
         </div>
@@ -123,16 +114,14 @@
         <a class="fa fa-weibo" href="javascript:void((function(s,d,e){try{}catch(e){}var f='http://service.weibo.com/share/share.php?',u=d.location.href,p=['url=',e(u),'&amp;title=',e(d.title),'&amp;appkey=2924220432'].join('');function a(){if(!window.open([f,p].join(''),'mb',['toolbar=0,status=0,resizable=1,width=620,height=450,left=',(s.width-620)/2,',top=',(s.height-450)/2].join('')))u.href=[f,p].join('');};if(/Firefox/.test(navigator.userAgent)){setTimeout(a,0)}else{a()}})(screen,document,encodeURIComponent));"></a>
        </div>
        <div class="twitter">
-        <a class="fa fa-twitter" href="http://twitter.com/home?status=,https://dream1ce.github.io/post/geometry/,;"></a>
+        <a class="fa fa-twitter" href="http://twitter.com/home?status=,https://dream1ce.github.io/post/materials-and-appearances/,;"></a>
        </div>
       </div>
       <div class="pagination">
        <ul class="clearfix">
 
-        <li class="pre pagbuttons"><a class="btn" role="navigation" href="https://dream1ce.github.io/post/geometry-mesh-operation/" title="Geometry: Mesh Operation">上一篇</a></li>
-         
         
-        <li class="next pagbuttons"><a class="btn" role="navigation" href="https://dream1ce.github.io/post/shadinglecture-3texture-mapping/" title=" Shading:lecture 3(Texture Mapping)">下一篇</a></li>
+        <li class="next pagbuttons"><a class="btn" role="navigation" href="https://dream1ce.github.io/post/ray-tracing-mote-carlo-path-tracing/" title=" Ray Tracing： Monte Carlo Path Tracing">下一篇</a></li>
         
        </ul>
       </div>

@@ -2,7 +2,7 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
     <id>https://dream1ce.github.io</id>
     <title>Learning Bolg</title>
-    <updated>2020-04-23T03:53:08.803Z</updated>
+    <updated>2020-04-24T05:03:49.554Z</updated>
     <generator>https://github.com/jpmonette/feed</generator>
     <link rel="alternate" href="https://dream1ce.github.io"/>
     <link rel="self" href="https://dream1ce.github.io/atom.xml"/>
@@ -10,6 +10,29 @@
     <logo>https://dream1ce.github.io/images/avatar.png</logo>
     <icon>https://dream1ce.github.io/favicon.ico</icon>
     <rights>All rights reserved 2020, Learning Bolg</rights>
+    <entry>
+        <title type="html"><![CDATA[Materials and Appearances]]></title>
+        <id>https://dream1ce.github.io/post/materials-and-appearances/</id>
+        <link href="https://dream1ce.github.io/post/materials-and-appearances/">
+        </link>
+        <updated>2020-04-24T01:48:27.000Z</updated>
+        <content type="html"><![CDATA[<p>写在最开始：我们在光线追踪之中提到了BRDF（Bidirectional Reflection Distribution Function）,所以我们要明白所谓的Materials就等于BRDF。</p>
+<h1 id="material">Material</h1>
+<h3 id="diffuselambertian-material">Diffuse/Lambertian Material</h3>
+<p>对于一个完全不吸收能量的材质，而且其能量为均匀散发。那么根据公式我们可得：$L_0(https://dream1ce.github.io/post-images/1587699552112.png)</p>
+<h3 id="glossy-material粗糙镜面">Glossy Material（粗糙镜面）</h3>
+<p>粗糙镜面往往可以用来形容抛光的金属。<br>
+<img src="https://dream1ce.github.io/post-images/1587699705306.png" alt="" loading="lazy"></p>
+<h3 id="glasswater-material">Glass/Water Material</h3>
+<figure data-type="image" tabindex="1"><img src="https://dream1ce.github.io/post-images/1587699805827.png" alt="" loading="lazy"></figure>
+<h3 id="microfacet-theory">Microfacet Theory</h3>
+<p>当我们离一个物体很远的时候，我们看物体都是一个平面，只有离近了之后才能看到凹凸不平的表面。即从远处看看到的是外观，近处看看到的才是几何。<br>
+我们可以通过观察微表面的法线分布来，估计远离平面时我们看到的效果，同时我们也可以通过微表面的法线分布来判断物质的粗糙程度。</p>
+<h3 id="isottropicanisotropic-material">Isottropic/Anisotropic Material</h3>
+<p>如果一个材质在一个方向上被打磨，那么其分布的法线向量也会有极大的差别，同一束光线达到上面也会有所不同。<br>
+<img src="https://dream1ce.github.io/post-images/1587702577312.png" alt="" loading="lazy"></p>
+]]></content>
+    </entry>
     <entry>
         <title type="html"><![CDATA[Ray Tracing： Monte Carlo Path Tracing]]></title>
         <id>https://dream1ce.github.io/post/ray-tracing-mote-carlo-path-tracing/</id>
