@@ -2,7 +2,7 @@
 <html lang="zh-CN">
  <head>
      <meta charset="utf-8" />
-  <title>Materials and Appearances | Learning Bolg</title>
+  <title>Computation | Learning Bolg</title>
   <meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" name="viewport" />
   <link rel="stylesheet" href="https://dream1ce.github.io/styles/main.css" />
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.10.0/katex.min.css">
@@ -75,24 +75,27 @@
      <div class="post-page">
       <div class="post animated fadeInDown">
        <div class="post-title">
-        <h3><a>Materials and Appearances</a></h3>
+        <h3><a>Computation</a></h3>
        </div>
        <div class="post-content">
-        <p>写在最开始：我们在光线追踪之中提到了BRDF（Bidirectional Reflection Distribution Function）,所以我们要明白所谓的Materials就等于BRDF。</p>
-<h1 id="material">Material</h1>
-<h3 id="diffuselambertian-material">Diffuse/Lambertian Material</h3>
-<p>对于一个完全不吸收能量的材质，而且其能量为均匀散发。那么根据公式我们可得：$L_0(https://dream1ce.github.io/post-images/1587699552112.png)</p>
-<h3 id="glossy-material粗糙镜面">Glossy Material（粗糙镜面）</h3>
-<p>粗糙镜面往往可以用来形容抛光的金属。<br>
-<img src="https://dream1ce.github.io/post-images/1587699705306.png" alt="" loading="lazy"></p>
-<h3 id="glasswater-material">Glass/Water Material</h3>
-<figure data-type="image" tabindex="1"><img src="https://dream1ce.github.io/post-images/1587699805827.png" alt="" loading="lazy"></figure>
-<h3 id="microfacet-theory">Microfacet Theory</h3>
-<p>当我们离一个物体很远的时候，我们看物体都是一个平面，只有离近了之后才能看到凹凸不平的表面。即从远处看看到的是外观，近处看看到的才是几何。<br>
-我们可以通过观察微表面的法线分布来，估计远离平面时我们看到的效果，同时我们也可以通过微表面的法线分布来判断物质的粗糙程度。</p>
-<h3 id="isottropicanisotropic-material">Isottropic/Anisotropic Material</h3>
-<p>如果一个材质在一个方向上被打磨，那么其分布的法线向量也会有极大的差别，同一束光线达到上面也会有所不同。<br>
-<img src="https://dream1ce.github.io/post-images/1587702577312.png" alt="" loading="lazy"></p>
+        <p>对于数据结构和算法而言我们主要研究的对象是计算，研究藏在计算当中的规律和技巧。同时我们还要保证计算的有效性和高效性(用更低的代价更快的实现计算)的目标。<br>
+引用Dijkstra的一句化：<strong>Computer science should be called computing science, for same reason why surgery is not called knife science.</strong></p>
+<h2 id="计算等于信息的处理">计算等于信息的处理</h2>
+<p>其实就是借助某种工具，按照一种规律，明确且机械的步骤执行。<br>
+算法就是在特定计算模型之下，用来解决特定问题的指令序列。<br>
+其拥有以下特性：<br>
+<strong>输入</strong>：待处理的信息<br>
+<strong>输出</strong>：处理完成之后的信息<br>
+<strong>正确性</strong>：能解决指定问题<br>
+<strong>确定性</strong>：每个算法都可以被描述为语义明确的基本操作序列<br>
+<strong>可行性</strong>：每个操作都能在常数的范围内实现。<br>
+<strong>有穷性</strong>：对于任意输入，都可以在有限次的步数之中实现。</p>
+<h2 id="有穷性">有穷性</h2>
+<p>其实对于一个算法来讲有穷性不是那么好确认的，例如NP问题，算法什么时候结束是不确定的，并且在一定的程度上是由输入决定的，且我们尚且无法证明对于所有的输入这个算法是否都能具有有穷性。<br>
+因此我们可以推断出，程序不等于算法，这其实也显而易见例如我们常常写出来的死循环，其就是程序但是不是算法，同时一些虽然能解决问题但是有穷性不能证明的程序，也无法定义它是不是算法。</p>
+<h1 id="小结">小结</h1>
+<p>Algorithm + Data Structure = Program<br>
+Program <span class="katex"><span class="katex-mathml"><math><semantics><mrow><mo>×</mo></mrow><annotation encoding="application/x-tex">\times</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.66666em;vertical-align:-0.08333em;"></span><span class="mord">×</span></span></span></span> Efficiency = Computing</p>
 
        </div>
        <div class="post-footer">
@@ -102,7 +105,7 @@
           <span class="date">2020-04-24</span>
           <i class="fa fa-tag"></i>
           
-          <a class="tag" href="https://dream1ce.github.io/tag/VGwmGlzjv/" title="计算机图形学">计算机图形学 </a>
+          <a class="tag" href="https://dream1ce.github.io/tag/uoCtF-niy/" title="数据结构和算法">数据结构和算法 </a>
           
          </div>
         </div>
@@ -116,16 +119,16 @@
         <a class="fa fa-weibo" href="javascript:void((function(s,d,e){try{}catch(e){}var f='http://service.weibo.com/share/share.php?',u=d.location.href,p=['url=',e(u),'&amp;title=',e(d.title),'&amp;appkey=2924220432'].join('');function a(){if(!window.open([f,p].join(''),'mb',['toolbar=0,status=0,resizable=1,width=620,height=450,left=',(s.width-620)/2,',top=',(s.height-450)/2].join('')))u.href=[f,p].join('');};if(/Firefox/.test(navigator.userAgent)){setTimeout(a,0)}else{a()}})(screen,document,encodeURIComponent));"></a>
        </div>
        <div class="twitter">
-        <a class="fa fa-twitter" href="http://twitter.com/home?status=,https://dream1ce.github.io/post/materials-and-appearances/,;"></a>
+        <a class="fa fa-twitter" href="http://twitter.com/home?status=,https://dream1ce.github.io/post/computation/,;"></a>
        </div>
       </div>
       <div class="pagination">
        <ul class="clearfix">
 
-        <li class="pre pagbuttons"><a class="btn" role="navigation" href="https://dream1ce.github.io/post/computation/" title="Computation">上一篇</a></li>
+        <li class="pre pagbuttons"><a class="btn" role="navigation" href="https://dream1ce.github.io/post/cameras-lenses-and-light-fields/" title="Cameras, Lenses and Light Fields">上一篇</a></li>
          
         
-        <li class="next pagbuttons"><a class="btn" role="navigation" href="https://dream1ce.github.io/post/ray-tracing-mote-carlo-path-tracing/" title=" Ray Tracing： Monte Carlo Path Tracing">下一篇</a></li>
+        <li class="next pagbuttons"><a class="btn" role="navigation" href="https://dream1ce.github.io/post/materials-and-appearances/" title=" Materials and Appearances">下一篇</a></li>
         
        </ul>
       </div>
