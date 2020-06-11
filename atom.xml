@@ -2,7 +2,7 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
     <id>https://dream1ce.github.io</id>
     <title>Learning Bolg</title>
-    <updated>2020-05-06T08:49:07.429Z</updated>
+    <updated>2020-06-11T15:17:03.708Z</updated>
     <generator>https://github.com/jpmonette/feed</generator>
     <link rel="alternate" href="https://dream1ce.github.io"/>
     <link rel="self" href="https://dream1ce.github.io/atom.xml"/>
@@ -10,6 +10,79 @@
     <logo>https://dream1ce.github.io/images/avatar.png</logo>
     <icon>https://dream1ce.github.io/favicon.ico</icon>
     <rights>All rights reserved 2020, Learning Bolg</rights>
+    <entry>
+        <title type="html"><![CDATA[Advance Physical System(2)]]></title>
+        <id>https://dream1ce.github.io/post/advance-physical-system2/</id>
+        <link href="https://dream1ce.github.io/post/advance-physical-system2/">
+        </link>
+        <updated>2020-06-11T11:38:53.000Z</updated>
+        <content type="html"><![CDATA[<h3 id="two-views-of-continuums">Two Views of continuums</h3>
+<p><strong>拉格朗日视角：</strong> 拉式视角通常运用particles 来计算相应物质的物理信息。即随着物质的运动而运动。<br>
+<strong>欧拉视角：</strong> 欧拉视角是将整个空间分隔成一个个grid，每个grid的位置不变。<br>
+<strong>个人理解：</strong> 拉格朗日视角是根据经典的物理学视角来对物质世界进行模拟，而欧拉好像将空间物理量通过一个变化的场来表达。<br>
+<img src="https://dream1ce.github.io/post-images/1591876138033.png" alt="" loading="lazy"></p>
+<h3 id="mass-spring-systems弹簧质点系统">Mass-Spring Systems(弹簧质点系统)</h3>
+<p>弹簧质点系统是通过胡可定律来计算质点之间的作用力，再通过牛顿第二定律来更新粒子的速度以及位置。<br>
+其数学公式如下图所示：<br>
+<img src="https://dream1ce.github.io/post-images/1591876295550.png" alt="" loading="lazy"><br>
+数学内容设计到初高中知识，同时涉及微分，都是些比较基础的内容不再过多的介绍。</p>
+<h3 id="time-integration时间积分">Time integration(时间积分)</h3>
+<p>时间积分其实就是再计算每一步的各种物理量，但是从整体数学的角度来看是一种积分的形式。<br>
+<img src="https://dream1ce.github.io/post-images/1591876866529.png" alt="" loading="lazy"><br>
+由图所示是三种积分的方法，也可以说是看待物体物理量变化的三种视角：</p>
+<ul>
+<li>Forward Euler(explicit) 前向欧拉法<br>
+前向欧拉法是完全用过去的信息去更新目前的信息。</li>
+<li>Semi-implicit Euler<br>
+半隐式欧拉从图中可以看出是以过去力的信息作为信息的源头，来进一步更新速度和位置。</li>
+<li>Backward Euler<br>
+后向欧拉是一种隐式的积分方法，其思想使用未来的信息去更新未来的信息。</li>
+</ul>
+<p>时间积分可以分为两种，两种方法各有优缺点：</p>
+<p><strong>显式方法：</strong></p>
+<ul>
+<li>根据过去的速度、位置信息更新未来的信息</li>
+<li>容易实现</li>
+<li>容易发散（积分爆炸），对stiff材料不友好</li>
+</ul>
+<p><strong>隐式方法：</strong></p>
+<ul>
+<li>根据过去及未来的信息更新未来的信息。第一个未来并非是第二个未来。</li>
+<li>相对于显式方法，隐式方法更难实现，需要对线性方程进行求解（线性系统求解）</li>
+<li>可能导致Numerical damping 和 locking</li>
+<li>数值更稳定，能够允许更大的<span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>d</mi><mi>t</mi></mrow><annotation encoding="application/x-tex">dt</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.69444em;vertical-align:0em;"></span><span class="mord mathdefault">d</span><span class="mord mathdefault">t</span></span></span></span> , 直观上可以加速计算。<br>
+<img src="https://dream1ce.github.io/post-images/1591883803890.png" alt="" loading="lazy"><br>
+上面这段图片说明了如何使用未来的信息去更新未来的信息，重点可以放在第三个方程，其中用到了微分的思想，同时第四个式子中中括号中的内容就是一阶泰勒展开。<br>
+将式子稍微整理以下就能得到以下的式子：<br>
+<img src="https://dream1ce.github.io/post-images/1591884117955.png" alt="" loading="lazy"><br>
+线性系统的解法如图中所说：雅可比/高斯迭代法、共轭梯度法。<br>
+<img src="https://dream1ce.github.io/post-images/1591884215556.png" alt="" loading="lazy"><br>
+这里解释一下为什么不用求逆的方法来求这个线性方程，求逆需要的算法时间复杂度和空间复杂度更高，当矩阵（方程组）规模比较大的时候Very costy, 迭代法的话对于方程迭代不过20-30次就完事了复杂度为<span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>O</mi><mo>(</mo><mn>1</mn><mo>)</mo></mrow><annotation encoding="application/x-tex">O(1)</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord mathdefault" style="margin-right:0.02778em;">O</span><span class="mopen">(</span><span class="mord">1</span><span class="mclose">)</span></span></span></span>。</li>
+</ul>
+<h3 id="smoothed-particle-hydrodynamics-平滑粒子流体动力学">Smoothed particle hydrodynamics 平滑粒子流体动力学</h3>
+<p>**核心思想：**一坨粒子其携带的物理量，形成的相关场由核函数将其平滑后作用在某个粒子上。<br>
+<img src="https://dream1ce.github.io/post-images/1591886493650.png" alt="" loading="lazy"><br>
+我们可以看到核函数是中间大两边小的，也就是说靠近中心的粒子贡献会更大而原理的粒子贡献会小，直观上来看就是像场的理论。<br>
+有三个注意的点：</p>
+<ol>
+<li>一开始这个方法适用于解决天体物理学问题的。</li>
+<li>没有mesh(中文可以说是网格？感觉还是有点差别)，非常适合自由表面(free-surface)流体。</li>
+<li>直觉上非常容易理解：每个粒子都是一小团水（严格上来讲还是有区别）。</li>
+</ol>
+<p>注：自由表面流体就是指像水一样的，和空气可以产生明显分界线的流体。<br>
+以下介绍SPH的动能方程：<br>
+<img src="https://dream1ce.github.io/post-images/1591887023899.png" alt="" loading="lazy"><br>
+注意其中的<span class="katex"><span class="katex-mathml"><math><semantics><mrow><mfrac><mrow><mi>D</mi><mi>v</mi></mrow><mrow><mi>D</mi><mi>t</mi></mrow></mfrac></mrow><annotation encoding="application/x-tex">\frac{Dv}{Dt}</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1.217331em;vertical-align:-0.345em;"></span><span class="mord"><span class="mopen nulldelimiter"></span><span class="mfrac"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.872331em;"><span style="top:-2.6550000000000002em;"><span class="pstrut" style="height:3em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mathdefault mtight" style="margin-right:0.02778em;">D</span><span class="mord mathdefault mtight">t</span></span></span></span><span style="top:-3.23em;"><span class="pstrut" style="height:3em;"></span><span class="frac-line" style="border-bottom-width:0.04em;"></span></span><span style="top:-3.394em;"><span class="pstrut" style="height:3em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mathdefault mtight" style="margin-right:0.02778em;">D</span><span class="mord mathdefault mtight" style="margin-right:0.03588em;">v</span></span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.345em;"><span></span></span></span></span></span><span class="mclose nulldelimiter"></span></span></span></span></span>指的是材料导数与压强、密度以及重力加速度有关，同时这在这些方程中也是最关键的。还有一个需要注意<span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>A</mi><mo>(</mo><mi>x</mi><mo>)</mo></mrow><annotation encoding="application/x-tex">A(x)</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord mathdefault">A</span><span class="mopen">(</span><span class="mord mathdefault">x</span><span class="mclose">)</span></span></span></span>的梯度计算会需要一个特别的算符。（因为讲的不是很连贯所以暂不记录）<br>
+<strong>SPH Simulation Cycle:</strong><br>
+<img src="https://dream1ce.github.io/post-images/1591888035753.png" alt="" loading="lazy"><br>
+<strong>Accelerating SPH:Neighborhood search:</strong><br>
+<img src="https://dream1ce.github.io/post-images/1591888288249.png" alt="" loading="lazy"><br>
+使用了类似Bounding Box 的技术来对邻近的元素进行加速计算复杂度从<span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>O</mi><mo>(</mo><msup><mi>n</mi><mn>2</mn></msup><mo>)</mo></mrow><annotation encoding="application/x-tex">O(n^2)</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1.064108em;vertical-align:-0.25em;"></span><span class="mord mathdefault" style="margin-right:0.02778em;">O</span><span class="mopen">(</span><span class="mord"><span class="mord mathdefault">n</span><span class="msupsub"><span class="vlist-t"><span class="vlist-r"><span class="vlist" style="height:0.8141079999999999em;"><span style="top:-3.063em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight">2</span></span></span></span></span></span></span></span><span class="mclose">)</span></span></span></span> 降到了<span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>O</mi><mo>(</mo><mi>n</mi><mo>)</mo></mrow><annotation encoding="application/x-tex">O(n)</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord mathdefault" style="margin-right:0.02778em;">O</span><span class="mopen">(</span><span class="mord mathdefault">n</span><span class="mclose">)</span></span></span></span></p>
+<h3 id="sourant-friedrichs-lewycfl-condition">Sourant-Friedrichs-Lewy(CFL) condition</h3>
+<p>该条件用于确定time size step的 upper bound，在实际使用通过设定C最大值来计算得到time size step的最大值。<br>
+<img src="https://dream1ce.github.io/post-images/1591888198134.png" alt="" loading="lazy"></p>
+]]></content>
+    </entry>
     <entry>
         <title type="html"><![CDATA[Cameras, Lenses and Light Fields]]></title>
         <id>https://dream1ce.github.io/post/cameras-lenses-and-light-fields/</id>
@@ -370,43 +443,6 @@ EK为光线照射。<br>
 法线贴图是用来在不增加三角形的前提下，来使整个图形看上去有更多的纹理，但是有一个缺点就是在图形 的边缘位置会露陷，毕竟产生的不是真的凹凸形状。</p>
 <h4 id="displacement-map">Displacement Map</h4>
 <p>和法线贴图类似但是其是真的将形状发生了改变，用了曲面细分的相关技术。</p>
-]]></content>
-    </entry>
-    <entry>
-        <title type="html"><![CDATA[Shading:lecture 2(Pipeline)]]></title>
-        <id>https://dream1ce.github.io/post/shadinglecture2pipeline/</id>
-        <link href="https://dream1ce.github.io/post/shadinglecture2pipeline/">
-        </link>
-        <updated>2020-04-05T12:29:37.000Z</updated>
-        <content type="html"><![CDATA[<p>以下的内容和硬件有些许关系。</p>
-<h1 id="rendering-pipeline渲染管线">Rendering Pipeline(渲染管线)</h1>
-<p>渲染管线又称渲染流水线，顾名思义其是用来表示从三维模型映射到二维图像直到呈现在屏幕上的整个过程。<br>
-其大致的流程为：<strong>顶点数据-&gt;顶点着色器-&gt;曲面细分-&gt;几何着色器-&gt;图元组装-&gt;光栅化-&gt;片段着色器-&gt;测试混合阶段</strong></p>
-<h4 id="顶点数据">顶点数据：</h4>
-<p>顶点数据用来为后面的其他阶段提供顶点信息，用于后期的绘制。<br>
-要注意的是在顶点数据阶段要向相应的图形图像接口表明是什么图元：常见的图元为点、线、三角面</p>
-<h4 id="顶点着色器">顶点着色器：</h4>
-<p>顶点着色器最主要进行坐标变换，从局部坐标到世界坐标、观测坐标、剪裁坐标的变换。在一些渲染方式中也会用来计算顶点的光照信息，如Groudaud Shading模型，但是效果不佳不常用。</p>
-<h4 id="曲面细分">曲面细分：</h4>
-<p>用镶嵌化技术对三角面进行细分，来增加三角面的个数。</p>
-<h4 id="图元组装">图元组装：</h4>
-<p>将输入的顶点信息组装成图元。</p>
-<h4 id="光栅化">光栅化：</h4>
-<p>将图形由连续转化为离散的像素点的过程。</p>
-<h4 id="片段着色器">片段着色器：</h4>
-<p>用来计算光照等其他可计算因素，来呈现屏幕上像素点最后的颜色。<br>
-##注意：<br>
-渲染管线的流程在不同的教科书中有不同的流程，以上划分仅仅为其中一个版本。</p>
-<h1 id="shader着色器">Shader（着色器）</h1>
-<p>Shader 中文名称为着色器，通俗的来讲就是负责绘制图像的内容的一种GPU程序。<br>
-对于图形学来讲常用的Shader为Vertex Shader 和 Fragment Shader。<br>
-以下列出其他Shader类型权当扩展：</p>
-<ol>
-<li>Geometry Shader：用来对于几何图形进行计算。</li>
-<li>Compute Shader：一种通用的计算单元，能计算一些更复杂的逻辑。<br>
-#显卡中的相应硬件：<br>
-显卡中有大量的运算单元，用来专门执行相应类型的Shader，其处理器的类型均为SIMD（并不严谨），能在同时做大量并行的计算。</li>
-</ol>
 ]]></content>
     </entry>
 </feed>
