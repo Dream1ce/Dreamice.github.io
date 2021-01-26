@@ -4,7 +4,7 @@
      <meta charset="utf-8" />
   <title>Advance Physical System(2) | Learning Bolg</title>
   <meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" name="viewport" />
-  <link rel="stylesheet" href="https://dream1ce.github.io/styles/main.css" />
+  <link rel="stylesheet" href="https://yuanke-pan.github.io/styles/main.css" />
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.10.0/katex.min.css">
    <script src="https://cdn.staticfile.org/highlight.js/9.15.9/highlight.min.js"></script>
     <script>hljs.initHighlightingOnLoad();</script>
@@ -13,7 +13,7 @@
      <div class="sidebar animated fadeInDown">
    <div class="logo-title">
     <div class="title">
-     <img src="https://dream1ce.github.io/images/avatar.png?v=1596286294809" style="width:127px;" />
+     <img src="https://yuanke-pan.github.io/images/avatar.png?v=1611671134140" style="width:127px;" />
 
      <div class="description">
       <p>Learn&Share</p>
@@ -82,15 +82,15 @@
 <p><strong>拉格朗日视角：</strong> 拉式视角通常运用particles 来计算相应物质的物理信息。即随着物质的运动而运动。<br>
 <strong>欧拉视角：</strong> 欧拉视角是将整个空间分隔成一个个grid，每个grid的位置不变。<br>
 <strong>个人理解：</strong> 拉格朗日视角是根据经典的物理学视角来对物质世界进行模拟，而欧拉好像将空间物理量通过一个变化的场来表达。<br>
-<img src="https://dream1ce.github.io/post-images/1591876138033.png" alt="" loading="lazy"></p>
+<img src="https://yuanke-pan.github.io/post-images/1591876138033.png" alt="" loading="lazy"></p>
 <h3 id="mass-spring-systems弹簧质点系统">Mass-Spring Systems(弹簧质点系统)</h3>
 <p>弹簧质点系统是通过胡可定律来计算质点之间的作用力，再通过牛顿第二定律来更新粒子的速度以及位置。<br>
 其数学公式如下图所示：<br>
-<img src="https://dream1ce.github.io/post-images/1591876295550.png" alt="" loading="lazy"><br>
+<img src="https://yuanke-pan.github.io/post-images/1591876295550.png" alt="" loading="lazy"><br>
 数学内容设计到初高中知识，同时涉及微分，都是些比较基础的内容不再过多的介绍。</p>
 <h3 id="time-integration时间积分">Time integration(时间积分)</h3>
 <p>时间积分其实就是再计算每一步的各种物理量，但是从整体数学的角度来看是一种积分的形式。<br>
-<img src="https://dream1ce.github.io/post-images/1591876866529.png" alt="" loading="lazy"><br>
+<img src="https://yuanke-pan.github.io/post-images/1591876866529.png" alt="" loading="lazy"><br>
 由图所示是三种积分的方法，也可以说是看待物体物理量变化的三种视角：</p>
 <ul>
 <li>Forward Euler(explicit) 前向欧拉法<br>
@@ -113,17 +113,17 @@
 <li>相对于显式方法，隐式方法更难实现，需要对线性方程进行求解（线性系统求解）</li>
 <li>可能导致Numerical damping 和 locking</li>
 <li>数值更稳定，能够允许更大的<span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>d</mi><mi>t</mi></mrow><annotation encoding="application/x-tex">dt</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.69444em;vertical-align:0em;"></span><span class="mord mathdefault">d</span><span class="mord mathdefault">t</span></span></span></span> , 直观上可以加速计算。<br>
-<img src="https://dream1ce.github.io/post-images/1591883803890.png" alt="" loading="lazy"><br>
+<img src="https://yuanke-pan.github.io/post-images/1591883803890.png" alt="" loading="lazy"><br>
 上面这段图片说明了如何使用未来的信息去更新未来的信息，重点可以放在第三个方程，其中用到了微分的思想，同时第四个式子中中括号中的内容就是一阶泰勒展开。<br>
 将式子稍微整理以下就能得到以下的式子：<br>
-<img src="https://dream1ce.github.io/post-images/1591884117955.png" alt="" loading="lazy"><br>
+<img src="https://yuanke-pan.github.io/post-images/1591884117955.png" alt="" loading="lazy"><br>
 线性系统的解法如图中所说：雅可比/高斯迭代法、共轭梯度法。<br>
-<img src="https://dream1ce.github.io/post-images/1591884215556.png" alt="" loading="lazy"><br>
+<img src="https://yuanke-pan.github.io/post-images/1591884215556.png" alt="" loading="lazy"><br>
 这里解释一下为什么不用求逆的方法来求这个线性方程，求逆需要的算法时间复杂度和空间复杂度更高，当矩阵（方程组）规模比较大的时候Very costy, 迭代法的话对于方程迭代不过20-30次就完事了复杂度为<span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>O</mi><mo>(</mo><mn>1</mn><mo>)</mo></mrow><annotation encoding="application/x-tex">O(1)</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord mathdefault" style="margin-right:0.02778em;">O</span><span class="mopen">(</span><span class="mord">1</span><span class="mclose">)</span></span></span></span>。</li>
 </ul>
 <h3 id="smoothed-particle-hydrodynamics-平滑粒子流体动力学">Smoothed particle hydrodynamics 平滑粒子流体动力学</h3>
 <p>**核心思想：**一坨粒子其携带的物理量，形成的相关场由核函数将其平滑后作用在某个粒子上。<br>
-<img src="https://dream1ce.github.io/post-images/1591886493650.png" alt="" loading="lazy"><br>
+<img src="https://yuanke-pan.github.io/post-images/1591886493650.png" alt="" loading="lazy"><br>
 我们可以看到核函数是中间大两边小的，也就是说靠近中心的粒子贡献会更大而原理的粒子贡献会小，直观上来看就是像场的理论。<br>
 有三个注意的点：</p>
 <ol>
@@ -133,16 +133,16 @@
 </ol>
 <p>注：自由表面流体就是指像水一样的，和空气可以产生明显分界线的流体。<br>
 以下介绍SPH的动能方程：<br>
-<img src="https://dream1ce.github.io/post-images/1591887023899.png" alt="" loading="lazy"><br>
+<img src="https://yuanke-pan.github.io/post-images/1591887023899.png" alt="" loading="lazy"><br>
 注意其中的<span class="katex"><span class="katex-mathml"><math><semantics><mrow><mfrac><mrow><mi>D</mi><mi>v</mi></mrow><mrow><mi>D</mi><mi>t</mi></mrow></mfrac></mrow><annotation encoding="application/x-tex">\frac{Dv}{Dt}</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1.217331em;vertical-align:-0.345em;"></span><span class="mord"><span class="mopen nulldelimiter"></span><span class="mfrac"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.872331em;"><span style="top:-2.6550000000000002em;"><span class="pstrut" style="height:3em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mathdefault mtight" style="margin-right:0.02778em;">D</span><span class="mord mathdefault mtight">t</span></span></span></span><span style="top:-3.23em;"><span class="pstrut" style="height:3em;"></span><span class="frac-line" style="border-bottom-width:0.04em;"></span></span><span style="top:-3.394em;"><span class="pstrut" style="height:3em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mathdefault mtight" style="margin-right:0.02778em;">D</span><span class="mord mathdefault mtight" style="margin-right:0.03588em;">v</span></span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.345em;"><span></span></span></span></span></span><span class="mclose nulldelimiter"></span></span></span></span></span>指的是材料导数与压强、密度以及重力加速度有关，同时这在这些方程中也是最关键的。还有一个需要注意<span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>A</mi><mo>(</mo><mi>x</mi><mo>)</mo></mrow><annotation encoding="application/x-tex">A(x)</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord mathdefault">A</span><span class="mopen">(</span><span class="mord mathdefault">x</span><span class="mclose">)</span></span></span></span>的梯度计算会需要一个特别的算符。（因为讲的不是很连贯所以暂不记录）<br>
 <strong>SPH Simulation Cycle:</strong><br>
-<img src="https://dream1ce.github.io/post-images/1591888035753.png" alt="" loading="lazy"><br>
+<img src="https://yuanke-pan.github.io/post-images/1591888035753.png" alt="" loading="lazy"><br>
 <strong>Accelerating SPH:Neighborhood search:</strong><br>
-<img src="https://dream1ce.github.io/post-images/1591888288249.png" alt="" loading="lazy"><br>
+<img src="https://yuanke-pan.github.io/post-images/1591888288249.png" alt="" loading="lazy"><br>
 使用了类似Bounding Box 的技术来对邻近的元素进行加速计算复杂度从<span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>O</mi><mo>(</mo><msup><mi>n</mi><mn>2</mn></msup><mo>)</mo></mrow><annotation encoding="application/x-tex">O(n^2)</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1.064108em;vertical-align:-0.25em;"></span><span class="mord mathdefault" style="margin-right:0.02778em;">O</span><span class="mopen">(</span><span class="mord"><span class="mord mathdefault">n</span><span class="msupsub"><span class="vlist-t"><span class="vlist-r"><span class="vlist" style="height:0.8141079999999999em;"><span style="top:-3.063em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight">2</span></span></span></span></span></span></span></span><span class="mclose">)</span></span></span></span> 降到了<span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>O</mi><mo>(</mo><mi>n</mi><mo>)</mo></mrow><annotation encoding="application/x-tex">O(n)</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord mathdefault" style="margin-right:0.02778em;">O</span><span class="mopen">(</span><span class="mord mathdefault">n</span><span class="mclose">)</span></span></span></span></p>
 <h3 id="sourant-friedrichs-lewycfl-condition">Sourant-Friedrichs-Lewy(CFL) condition</h3>
 <p>该条件用于确定time size step的 upper bound，在实际使用通过设定C最大值来计算得到time size step的最大值。<br>
-<img src="https://dream1ce.github.io/post-images/1591888198134.png" alt="" loading="lazy"></p>
+<img src="https://yuanke-pan.github.io/post-images/1591888198134.png" alt="" loading="lazy"></p>
 
        </div>
        <div class="post-footer">
@@ -152,7 +152,7 @@
           <span class="date">2020-06-11</span>
           <i class="fa fa-tag"></i>
           
-          <a class="tag" href="https://dream1ce.github.io/tag/XYnXQQlPf/" title="高级物理引擎">高级物理引擎 </a>
+          <a class="tag" href="https://yuanke-pan.github.io/tag/XYnXQQlPf/" title="高级物理引擎">高级物理引擎 </a>
           
          </div>
         </div>
@@ -166,14 +166,14 @@
         <a class="fa fa-weibo" href="javascript:void((function(s,d,e){try{}catch(e){}var f='http://service.weibo.com/share/share.php?',u=d.location.href,p=['url=',e(u),'&amp;title=',e(d.title),'&amp;appkey=2924220432'].join('');function a(){if(!window.open([f,p].join(''),'mb',['toolbar=0,status=0,resizable=1,width=620,height=450,left=',(s.width-620)/2,',top=',(s.height-450)/2].join('')))u.href=[f,p].join('');};if(/Firefox/.test(navigator.userAgent)){setTimeout(a,0)}else{a()}})(screen,document,encodeURIComponent));"></a>
        </div>
        <div class="twitter">
-        <a class="fa fa-twitter" href="http://twitter.com/home?status=,https://dream1ce.github.io/post/advance-physical-system2/,;"></a>
+        <a class="fa fa-twitter" href="http://twitter.com/home?status=,https://yuanke-pan.github.io/post/advance-physical-system2/,;"></a>
        </div>
       </div>
       <div class="pagination">
        <ul class="clearfix">
 
         
-        <li class="next pagbuttons"><a class="btn" role="navigation" href="https://dream1ce.github.io/post/cameras-lenses-and-light-fields/" title=" Cameras, Lenses and Light Fields">下一篇</a></li>
+        <li class="next pagbuttons"><a class="btn" role="navigation" href="https://yuanke-pan.github.io/post/cameras-lenses-and-light-fields/" title=" Cameras, Lenses and Light Fields">下一篇</a></li>
         
        </ul>
       </div>
@@ -207,9 +207,9 @@
     </div>
    </div>
   </div>
-  <script src="https://dream1ce.github.io/media/scripts/jquery.js"></script>
-  <script src="https://dream1ce.github.io/media/scripts/jquery-migrate-1.2.1.min.js"></script>
-  <script src="https://dream1ce.github.io/media/scripts/jquery.appear.js"></script>
+  <script src="https://yuanke-pan.github.io/media/scripts/jquery.js"></script>
+  <script src="https://yuanke-pan.github.io/media/scripts/jquery-migrate-1.2.1.min.js"></script>
+  <script src="https://yuanke-pan.github.io/media/scripts/jquery.appear.js"></script>
 
 
  </body>

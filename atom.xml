@@ -1,34 +1,34 @@
 <?xml version="1.0" encoding="utf-8"?>
 <feed xmlns="http://www.w3.org/2005/Atom">
-    <id>https://dream1ce.github.io</id>
+    <id>https://yuanke-pan.github.io</id>
     <title>Learning Bolg</title>
-    <updated>2020-08-01T13:43:58.487Z</updated>
+    <updated>2021-01-26T14:25:38.313Z</updated>
     <generator>https://github.com/jpmonette/feed</generator>
-    <link rel="alternate" href="https://dream1ce.github.io"/>
-    <link rel="self" href="https://dream1ce.github.io/atom.xml"/>
+    <link rel="alternate" href="https://yuanke-pan.github.io"/>
+    <link rel="self" href="https://yuanke-pan.github.io/atom.xml"/>
     <subtitle>Learn&amp;Share</subtitle>
-    <logo>https://dream1ce.github.io/images/avatar.png</logo>
-    <icon>https://dream1ce.github.io/favicon.ico</icon>
-    <rights>All rights reserved 2020, Learning Bolg</rights>
+    <logo>https://yuanke-pan.github.io/images/avatar.png</logo>
+    <icon>https://yuanke-pan.github.io/favicon.ico</icon>
+    <rights>All rights reserved 2021, Learning Bolg</rights>
     <entry>
         <title type="html"><![CDATA[Advance Physical System(2)]]></title>
-        <id>https://dream1ce.github.io/post/advance-physical-system2/</id>
-        <link href="https://dream1ce.github.io/post/advance-physical-system2/">
+        <id>https://yuanke-pan.github.io/post/advance-physical-system2/</id>
+        <link href="https://yuanke-pan.github.io/post/advance-physical-system2/">
         </link>
         <updated>2020-06-11T11:38:53.000Z</updated>
         <content type="html"><![CDATA[<h3 id="two-views-of-continuums">Two Views of continuums</h3>
 <p><strong>拉格朗日视角：</strong> 拉式视角通常运用particles 来计算相应物质的物理信息。即随着物质的运动而运动。<br>
 <strong>欧拉视角：</strong> 欧拉视角是将整个空间分隔成一个个grid，每个grid的位置不变。<br>
 <strong>个人理解：</strong> 拉格朗日视角是根据经典的物理学视角来对物质世界进行模拟，而欧拉好像将空间物理量通过一个变化的场来表达。<br>
-<img src="https://dream1ce.github.io/post-images/1591876138033.png" alt="" loading="lazy"></p>
+<img src="https://yuanke-pan.github.io/post-images/1591876138033.png" alt="" loading="lazy"></p>
 <h3 id="mass-spring-systems弹簧质点系统">Mass-Spring Systems(弹簧质点系统)</h3>
 <p>弹簧质点系统是通过胡可定律来计算质点之间的作用力，再通过牛顿第二定律来更新粒子的速度以及位置。<br>
 其数学公式如下图所示：<br>
-<img src="https://dream1ce.github.io/post-images/1591876295550.png" alt="" loading="lazy"><br>
+<img src="https://yuanke-pan.github.io/post-images/1591876295550.png" alt="" loading="lazy"><br>
 数学内容设计到初高中知识，同时涉及微分，都是些比较基础的内容不再过多的介绍。</p>
 <h3 id="time-integration时间积分">Time integration(时间积分)</h3>
 <p>时间积分其实就是再计算每一步的各种物理量，但是从整体数学的角度来看是一种积分的形式。<br>
-<img src="https://dream1ce.github.io/post-images/1591876866529.png" alt="" loading="lazy"><br>
+<img src="https://yuanke-pan.github.io/post-images/1591876866529.png" alt="" loading="lazy"><br>
 由图所示是三种积分的方法，也可以说是看待物体物理量变化的三种视角：</p>
 <ul>
 <li>Forward Euler(explicit) 前向欧拉法<br>
@@ -51,17 +51,17 @@
 <li>相对于显式方法，隐式方法更难实现，需要对线性方程进行求解（线性系统求解）</li>
 <li>可能导致Numerical damping 和 locking</li>
 <li>数值更稳定，能够允许更大的<span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>d</mi><mi>t</mi></mrow><annotation encoding="application/x-tex">dt</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.69444em;vertical-align:0em;"></span><span class="mord mathdefault">d</span><span class="mord mathdefault">t</span></span></span></span> , 直观上可以加速计算。<br>
-<img src="https://dream1ce.github.io/post-images/1591883803890.png" alt="" loading="lazy"><br>
+<img src="https://yuanke-pan.github.io/post-images/1591883803890.png" alt="" loading="lazy"><br>
 上面这段图片说明了如何使用未来的信息去更新未来的信息，重点可以放在第三个方程，其中用到了微分的思想，同时第四个式子中中括号中的内容就是一阶泰勒展开。<br>
 将式子稍微整理以下就能得到以下的式子：<br>
-<img src="https://dream1ce.github.io/post-images/1591884117955.png" alt="" loading="lazy"><br>
+<img src="https://yuanke-pan.github.io/post-images/1591884117955.png" alt="" loading="lazy"><br>
 线性系统的解法如图中所说：雅可比/高斯迭代法、共轭梯度法。<br>
-<img src="https://dream1ce.github.io/post-images/1591884215556.png" alt="" loading="lazy"><br>
+<img src="https://yuanke-pan.github.io/post-images/1591884215556.png" alt="" loading="lazy"><br>
 这里解释一下为什么不用求逆的方法来求这个线性方程，求逆需要的算法时间复杂度和空间复杂度更高，当矩阵（方程组）规模比较大的时候Very costy, 迭代法的话对于方程迭代不过20-30次就完事了复杂度为<span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>O</mi><mo>(</mo><mn>1</mn><mo>)</mo></mrow><annotation encoding="application/x-tex">O(1)</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord mathdefault" style="margin-right:0.02778em;">O</span><span class="mopen">(</span><span class="mord">1</span><span class="mclose">)</span></span></span></span>。</li>
 </ul>
 <h3 id="smoothed-particle-hydrodynamics-平滑粒子流体动力学">Smoothed particle hydrodynamics 平滑粒子流体动力学</h3>
 <p>**核心思想：**一坨粒子其携带的物理量，形成的相关场由核函数将其平滑后作用在某个粒子上。<br>
-<img src="https://dream1ce.github.io/post-images/1591886493650.png" alt="" loading="lazy"><br>
+<img src="https://yuanke-pan.github.io/post-images/1591886493650.png" alt="" loading="lazy"><br>
 我们可以看到核函数是中间大两边小的，也就是说靠近中心的粒子贡献会更大而原理的粒子贡献会小，直观上来看就是像场的理论。<br>
 有三个注意的点：</p>
 <ol>
@@ -71,22 +71,22 @@
 </ol>
 <p>注：自由表面流体就是指像水一样的，和空气可以产生明显分界线的流体。<br>
 以下介绍SPH的动能方程：<br>
-<img src="https://dream1ce.github.io/post-images/1591887023899.png" alt="" loading="lazy"><br>
+<img src="https://yuanke-pan.github.io/post-images/1591887023899.png" alt="" loading="lazy"><br>
 注意其中的<span class="katex"><span class="katex-mathml"><math><semantics><mrow><mfrac><mrow><mi>D</mi><mi>v</mi></mrow><mrow><mi>D</mi><mi>t</mi></mrow></mfrac></mrow><annotation encoding="application/x-tex">\frac{Dv}{Dt}</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1.217331em;vertical-align:-0.345em;"></span><span class="mord"><span class="mopen nulldelimiter"></span><span class="mfrac"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.872331em;"><span style="top:-2.6550000000000002em;"><span class="pstrut" style="height:3em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mathdefault mtight" style="margin-right:0.02778em;">D</span><span class="mord mathdefault mtight">t</span></span></span></span><span style="top:-3.23em;"><span class="pstrut" style="height:3em;"></span><span class="frac-line" style="border-bottom-width:0.04em;"></span></span><span style="top:-3.394em;"><span class="pstrut" style="height:3em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mathdefault mtight" style="margin-right:0.02778em;">D</span><span class="mord mathdefault mtight" style="margin-right:0.03588em;">v</span></span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.345em;"><span></span></span></span></span></span><span class="mclose nulldelimiter"></span></span></span></span></span>指的是材料导数与压强、密度以及重力加速度有关，同时这在这些方程中也是最关键的。还有一个需要注意<span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>A</mi><mo>(</mo><mi>x</mi><mo>)</mo></mrow><annotation encoding="application/x-tex">A(x)</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord mathdefault">A</span><span class="mopen">(</span><span class="mord mathdefault">x</span><span class="mclose">)</span></span></span></span>的梯度计算会需要一个特别的算符。（因为讲的不是很连贯所以暂不记录）<br>
 <strong>SPH Simulation Cycle:</strong><br>
-<img src="https://dream1ce.github.io/post-images/1591888035753.png" alt="" loading="lazy"><br>
+<img src="https://yuanke-pan.github.io/post-images/1591888035753.png" alt="" loading="lazy"><br>
 <strong>Accelerating SPH:Neighborhood search:</strong><br>
-<img src="https://dream1ce.github.io/post-images/1591888288249.png" alt="" loading="lazy"><br>
+<img src="https://yuanke-pan.github.io/post-images/1591888288249.png" alt="" loading="lazy"><br>
 使用了类似Bounding Box 的技术来对邻近的元素进行加速计算复杂度从<span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>O</mi><mo>(</mo><msup><mi>n</mi><mn>2</mn></msup><mo>)</mo></mrow><annotation encoding="application/x-tex">O(n^2)</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1.064108em;vertical-align:-0.25em;"></span><span class="mord mathdefault" style="margin-right:0.02778em;">O</span><span class="mopen">(</span><span class="mord"><span class="mord mathdefault">n</span><span class="msupsub"><span class="vlist-t"><span class="vlist-r"><span class="vlist" style="height:0.8141079999999999em;"><span style="top:-3.063em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight">2</span></span></span></span></span></span></span></span><span class="mclose">)</span></span></span></span> 降到了<span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>O</mi><mo>(</mo><mi>n</mi><mo>)</mo></mrow><annotation encoding="application/x-tex">O(n)</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord mathdefault" style="margin-right:0.02778em;">O</span><span class="mopen">(</span><span class="mord mathdefault">n</span><span class="mclose">)</span></span></span></span></p>
 <h3 id="sourant-friedrichs-lewycfl-condition">Sourant-Friedrichs-Lewy(CFL) condition</h3>
 <p>该条件用于确定time size step的 upper bound，在实际使用通过设定C最大值来计算得到time size step的最大值。<br>
-<img src="https://dream1ce.github.io/post-images/1591888198134.png" alt="" loading="lazy"></p>
+<img src="https://yuanke-pan.github.io/post-images/1591888198134.png" alt="" loading="lazy"></p>
 ]]></content>
     </entry>
     <entry>
         <title type="html"><![CDATA[Cameras, Lenses and Light Fields]]></title>
-        <id>https://dream1ce.github.io/post/cameras-lenses-and-light-fields/</id>
-        <link href="https://dream1ce.github.io/post/cameras-lenses-and-light-fields/">
+        <id>https://yuanke-pan.github.io/post/cameras-lenses-and-light-fields/</id>
+        <link href="https://yuanke-pan.github.io/post/cameras-lenses-and-light-fields/">
         </link>
         <updated>2020-04-25T01:59:04.000Z</updated>
         <content type="html"><![CDATA[<p>对于图形学的所有应用来讲，特别是在三维空间中的应用，我们到了最后一定离不开的一点就是成像，既然是成像那么就离不开成像设备。</p>
@@ -96,14 +96,14 @@
 因此我们也就能比较直观的感受目前成像的两种方式。</p>
 <h3 id="小孔成像">小孔成像</h3>
 <p>好难解释直接上图<br>
-<img src="https://dream1ce.github.io/post-images/1587783301892.png" alt="" loading="lazy"><br>
+<img src="https://yuanke-pan.github.io/post-images/1587783301892.png" alt="" loading="lazy"><br>
 我们平时常说的针孔相机用的就是这个原理。</p>
 <h3 id="透镜成像">透镜成像</h3>
 <p>这个原理就是我们现在常用的照相机，利用透镜将一个不同方向的光投射在同一个点上。<br>
-<img src="https://dream1ce.github.io/post-images/1587783772432.png" alt="" loading="lazy"></p>
+<img src="https://yuanke-pan.github.io/post-images/1587783772432.png" alt="" loading="lazy"></p>
 <h3 id="一些专用的术语">一些专用的术语</h3>
 <p><strong>FOV:</strong> 是视场？？不是很懂学摄影的应该知道。<br>
-<img src="https://dream1ce.github.io/post-images/1587784407223.png" alt="" loading="lazy"></p>
+<img src="https://yuanke-pan.github.io/post-images/1587784407223.png" alt="" loading="lazy"></p>
 <p class='katex-block'><span class="katex-display"><span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>F</mi><mi>O</mi><mi>V</mi><mo>=</mo><mn>2</mn><mi>arctan</mi><mo>⁡</mo><mfrac><mi>h</mi><mrow><mn>2</mn><mi>f</mi></mrow></mfrac></mrow><annotation encoding="application/x-tex">FOV = 2 \arctan{\frac{h}{2f}}
 </annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.68333em;vertical-align:0em;"></span><span class="mord mathdefault" style="margin-right:0.13889em;">F</span><span class="mord mathdefault" style="margin-right:0.02778em;">O</span><span class="mord mathdefault" style="margin-right:0.22222em;">V</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span></span><span class="base"><span class="strut" style="height:2.25188em;vertical-align:-0.8804400000000001em;"></span><span class="mord">2</span><span class="mspace" style="margin-right:0.16666666666666666em;"></span><span class="mop">arctan</span><span class="mspace" style="margin-right:0.16666666666666666em;"></span><span class="mord"><span class="mord"><span class="mopen nulldelimiter"></span><span class="mfrac"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:1.37144em;"><span style="top:-2.314em;"><span class="pstrut" style="height:3em;"></span><span class="mord"><span class="mord">2</span><span class="mord mathdefault" style="margin-right:0.10764em;">f</span></span></span><span style="top:-3.23em;"><span class="pstrut" style="height:3em;"></span><span class="frac-line" style="border-bottom-width:0.04em;"></span></span><span style="top:-3.677em;"><span class="pstrut" style="height:3em;"></span><span class="mord"><span class="mord mathdefault">h</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.8804400000000001em;"><span></span></span></span></span></span><span class="mclose nulldelimiter"></span></span></span></span></span></span></span></p>
 <p><strong>Exposure(曝光):</strong> <span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>H</mi><mo>=</mo><mi>T</mi><mo>×</mo><mi>E</mi></mrow><annotation encoding="application/x-tex">H=T\times E</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.68333em;vertical-align:0em;"></span><span class="mord mathdefault" style="margin-right:0.08125em;">H</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span></span><span class="base"><span class="strut" style="height:0.76666em;vertical-align:-0.08333em;"></span><span class="mord mathdefault" style="margin-right:0.13889em;">T</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span><span class="mbin">×</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span></span><span class="base"><span class="strut" style="height:0.68333em;vertical-align:0em;"></span><span class="mord mathdefault" style="margin-right:0.05764em;">E</span></span></span></span><br>
@@ -125,8 +125,8 @@
     </entry>
     <entry>
         <title type="html"><![CDATA[Computation]]></title>
-        <id>https://dream1ce.github.io/post/computation/</id>
-        <link href="https://dream1ce.github.io/post/computation/">
+        <id>https://yuanke-pan.github.io/post/computation/</id>
+        <link href="https://yuanke-pan.github.io/post/computation/">
         </link>
         <updated>2020-04-24T13:44:39.000Z</updated>
         <content type="html"><![CDATA[<p>对于数据结构和算法而言我们主要研究的对象是计算，研究藏在计算当中的规律和技巧。同时我们还要保证计算的有效性和高效性(用更低的代价更快的实现计算)的目标。<br>
@@ -151,31 +151,31 @@ Program <span class="katex"><span class="katex-mathml"><math><semantics><mrow><m
     </entry>
     <entry>
         <title type="html"><![CDATA[Materials and Appearances]]></title>
-        <id>https://dream1ce.github.io/post/materials-and-appearances/</id>
-        <link href="https://dream1ce.github.io/post/materials-and-appearances/">
+        <id>https://yuanke-pan.github.io/post/materials-and-appearances/</id>
+        <link href="https://yuanke-pan.github.io/post/materials-and-appearances/">
         </link>
         <updated>2020-04-24T01:48:27.000Z</updated>
         <content type="html"><![CDATA[<p>写在最开始：我们在光线追踪之中提到了BRDF（Bidirectional Reflection Distribution Function）,所以我们要明白所谓的Materials就等于BRDF。</p>
 <h1 id="material">Material</h1>
 <h3 id="diffuselambertian-material">Diffuse/Lambertian Material</h3>
-<p>对于一个完全不吸收能量的材质，而且其能量为均匀散发。那么根据公式我们可得：$L_0(https://dream1ce.github.io/post-images/1587699552112.png)</p>
+<p>对于一个完全不吸收能量的材质，而且其能量为均匀散发。那么根据公式我们可得：$L_0(https://yuanke-pan.github.io/post-images/1587699552112.png)</p>
 <h3 id="glossy-material粗糙镜面">Glossy Material（粗糙镜面）</h3>
 <p>粗糙镜面往往可以用来形容抛光的金属。<br>
-<img src="https://dream1ce.github.io/post-images/1587699705306.png" alt="" loading="lazy"></p>
+<img src="https://yuanke-pan.github.io/post-images/1587699705306.png" alt="" loading="lazy"></p>
 <h3 id="glasswater-material">Glass/Water Material</h3>
-<figure data-type="image" tabindex="1"><img src="https://dream1ce.github.io/post-images/1587699805827.png" alt="" loading="lazy"></figure>
+<figure data-type="image" tabindex="1"><img src="https://yuanke-pan.github.io/post-images/1587699805827.png" alt="" loading="lazy"></figure>
 <h3 id="microfacet-theory">Microfacet Theory</h3>
 <p>当我们离一个物体很远的时候，我们看物体都是一个平面，只有离近了之后才能看到凹凸不平的表面。即从远处看看到的是外观，近处看看到的才是几何。<br>
 我们可以通过观察微表面的法线分布来，估计远离平面时我们看到的效果，同时我们也可以通过微表面的法线分布来判断物质的粗糙程度。</p>
 <h3 id="isottropicanisotropic-material">Isottropic/Anisotropic Material</h3>
 <p>如果一个材质在一个方向上被打磨，那么其分布的法线向量也会有极大的差别，同一束光线达到上面也会有所不同。<br>
-<img src="https://dream1ce.github.io/post-images/1587702577312.png" alt="" loading="lazy"></p>
+<img src="https://yuanke-pan.github.io/post-images/1587702577312.png" alt="" loading="lazy"></p>
 ]]></content>
     </entry>
     <entry>
         <title type="html"><![CDATA[Ray Tracing： Monte Carlo Path Tracing]]></title>
-        <id>https://dream1ce.github.io/post/ray-tracing-mote-carlo-path-tracing/</id>
-        <link href="https://dream1ce.github.io/post/ray-tracing-mote-carlo-path-tracing/">
+        <id>https://yuanke-pan.github.io/post/ray-tracing-mote-carlo-path-tracing/</id>
+        <link href="https://yuanke-pan.github.io/post/ray-tracing-mote-carlo-path-tracing/">
         </link>
         <updated>2020-04-23T02:17:09.000Z</updated>
         <content type="html"><![CDATA[<h1 id="monte-carlo-integration蒙特卡洛积分">Monte Carlo Integration（蒙特卡洛积分）</h1>
@@ -208,8 +208,8 @@ Program <span class="katex"><span class="katex-mathml"><math><semantics><mrow><m
     </entry>
     <entry>
         <title type="html"><![CDATA[Ray Tracing: Radiometric && Light Transport]]></title>
-        <id>https://dream1ce.github.io/post/ray-tracing-radiometric/</id>
-        <link href="https://dream1ce.github.io/post/ray-tracing-radiometric/">
+        <id>https://yuanke-pan.github.io/post/ray-tracing-radiometric/</id>
+        <link href="https://yuanke-pan.github.io/post/ray-tracing-radiometric/">
         </link>
         <updated>2020-04-18T02:09:31.000Z</updated>
         <content type="html"><![CDATA[<p>过去的光线追踪计算光照传播的算法往往只是简单的遇到镜面反射面就反弹，遇到漫反射面就吸收不反弹，但是真实的光线反射并不是如此，因此要引入在物理发明发现的辐射度量学，来让光线的显示更加的真实。</p>
@@ -254,8 +254,8 @@ EK为光线照射。<br>
     </entry>
     <entry>
         <title type="html"><![CDATA[Ray Tracing:Whitted-Style]]></title>
-        <id>https://dream1ce.github.io/post/ray-tracingwhitted-style/</id>
-        <link href="https://dream1ce.github.io/post/ray-tracingwhitted-style/">
+        <id>https://yuanke-pan.github.io/post/ray-tracingwhitted-style/</id>
+        <link href="https://yuanke-pan.github.io/post/ray-tracingwhitted-style/">
         </link>
         <updated>2020-04-15T12:31:04.000Z</updated>
         <content type="html"><![CDATA[<p>在了解光线追踪之前，先要明白光栅化的阴影是怎么做的，有什么缺陷。</p>
@@ -335,8 +335,8 @@ EK为光线照射。<br>
     </entry>
     <entry>
         <title type="html"><![CDATA[Geometry: Mesh Operation]]></title>
-        <id>https://dream1ce.github.io/post/geometry-mesh-operation/</id>
-        <link href="https://dream1ce.github.io/post/geometry-mesh-operation/">
+        <id>https://yuanke-pan.github.io/post/geometry-mesh-operation/</id>
+        <link href="https://yuanke-pan.github.io/post/geometry-mesh-operation/">
         </link>
         <updated>2020-04-13T14:05:47.000Z</updated>
         <content type="html"><![CDATA[<h1 id="mesh-subdivision曲面细分">Mesh Subdivision（曲面细分）</h1>
@@ -362,8 +362,8 @@ EK为光线照射。<br>
     </entry>
     <entry>
         <title type="html"><![CDATA[Geometry：Curve & Surface]]></title>
-        <id>https://dream1ce.github.io/post/geometry/</id>
-        <link href="https://dream1ce.github.io/post/geometry/">
+        <id>https://yuanke-pan.github.io/post/geometry/</id>
+        <link href="https://yuanke-pan.github.io/post/geometry/">
         </link>
         <updated>2020-04-09T14:18:03.000Z</updated>
         <content type="html"><![CDATA[<p>在物体几何的表示中，一共有两种表示方法：隐式表示法和显式表示法。</p>
@@ -392,8 +392,8 @@ EK为光线照射。<br>
     </entry>
     <entry>
         <title type="html"><![CDATA[Shading:lecture 3(Texture Mapping)]]></title>
-        <id>https://dream1ce.github.io/post/shadinglecture-3texture-mapping/</id>
-        <link href="https://dream1ce.github.io/post/shadinglecture-3texture-mapping/">
+        <id>https://yuanke-pan.github.io/post/shadinglecture-3texture-mapping/</id>
+        <link href="https://yuanke-pan.github.io/post/shadinglecture-3texture-mapping/">
         </link>
         <updated>2020-04-08T02:40:48.000Z</updated>
         <content type="html"><![CDATA[<p>材质映射是一种把高频信息、表面材质或颜色信息定义在图像或者模型上的一种方法。<br>
@@ -430,10 +430,10 @@ EK为光线照射。<br>
 <p>如果直接采样会产生锯齿，那么最简单的一个思路就是我不对特定点进行采样了，如果能直接知道附近颜色平均值那我就不用采样了，取平均即可</p>
 <h5 id="mipmap">Mipmap</h5>
 <p>如何求一个范围的平均值？将图像不断缩小（将图像模糊，四个像素混成一种颜色），每次缩小四倍，共产生<span class="katex"><span class="katex-mathml"><math><semantics><mrow><msub><mi>lg</mi><mo>⁡</mo><mn>2</mn></msub><mi>n</mi></mrow><annotation encoding="application/x-tex">\lg_2 n</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.93858em;vertical-align:-0.24414em;"></span><span class="mop"><span class="mop">l<span style="margin-right:0.01389em;">g</span></span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.20696799999999996em;"><span style="top:-2.4558600000000004em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight">2</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.24414em;"><span></span></span></span></span></span></span><span class="mspace" style="margin-right:0.16666666666666666em;"></span><span class="mord mathdefault">n</span></span></span></span> 幅缩略图，可直接用来做范围查找(range query)，所需内存是原来的<span class="katex"><span class="katex-mathml"><math><semantics><mrow><mfrac><mn>3</mn><mn>4</mn></mfrac></mrow><annotation encoding="application/x-tex">\frac{3}{4}</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1.190108em;vertical-align:-0.345em;"></span><span class="mord"><span class="mopen nulldelimiter"></span><span class="mfrac"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.845108em;"><span style="top:-2.6550000000000002em;"><span class="pstrut" style="height:3em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mtight">4</span></span></span></span><span style="top:-3.23em;"><span class="pstrut" style="height:3em;"></span><span class="frac-line" style="border-bottom-width:0.04em;"></span></span><span style="top:-3.394em;"><span class="pstrut" style="height:3em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mtight">3</span></span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.345em;"><span></span></span></span></span></span><span class="mclose nulldelimiter"></span></span></span></span></span>根据像素的大小直接查询最接近的Mipmap。缺点：对于非正方形的图形效果不是很好。<br>
-<img src="https://dream1ce.github.io/post-images/1586318373356.jpg" alt="" loading="lazy"></p>
+<img src="https://yuanke-pan.github.io/post-images/1586318373356.jpg" alt="" loading="lazy"></p>
 <h5 id="各向异性过滤anisotropic-filtering">各向异性过滤(Anisotropic Filtering)</h5>
 <p>思想和Mipmap类似但是除了同时将宽和高缩小之外，还各进行了高和宽独自的缩小。<br>
-<img src="https://dream1ce.github.io/post-images/1586318290370.png" alt="" loading="lazy"></p>
+<img src="https://yuanke-pan.github.io/post-images/1586318290370.png" alt="" loading="lazy"></p>
 <h5 id="ewa-filtering">EWA Filtering</h5>
 <p>这个更加复杂是用圆形来覆盖原来不规则的形状。</p>
 <h1 id="在做shading时的其他技术">在做Shading时的其他技术</h1>

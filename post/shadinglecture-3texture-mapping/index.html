@@ -4,7 +4,7 @@
      <meta charset="utf-8" />
   <title>Shading:lecture 3(Texture Mapping) | Learning Bolg</title>
   <meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" name="viewport" />
-  <link rel="stylesheet" href="https://dream1ce.github.io/styles/main.css" />
+  <link rel="stylesheet" href="https://yuanke-pan.github.io/styles/main.css" />
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.10.0/katex.min.css">
    <script src="https://cdn.staticfile.org/highlight.js/9.15.9/highlight.min.js"></script>
     <script>hljs.initHighlightingOnLoad();</script>
@@ -13,7 +13,7 @@
      <div class="sidebar animated fadeInDown">
    <div class="logo-title">
     <div class="title">
-     <img src="https://dream1ce.github.io/images/avatar.png?v=1596286294809" style="width:127px;" />
+     <img src="https://yuanke-pan.github.io/images/avatar.png?v=1611671134140" style="width:127px;" />
 
      <div class="description">
       <p>Learn&Share</p>
@@ -112,10 +112,10 @@
 <p>如果直接采样会产生锯齿，那么最简单的一个思路就是我不对特定点进行采样了，如果能直接知道附近颜色平均值那我就不用采样了，取平均即可</p>
 <h5 id="mipmap">Mipmap</h5>
 <p>如何求一个范围的平均值？将图像不断缩小（将图像模糊，四个像素混成一种颜色），每次缩小四倍，共产生<span class="katex"><span class="katex-mathml"><math><semantics><mrow><msub><mi>lg</mi><mo>⁡</mo><mn>2</mn></msub><mi>n</mi></mrow><annotation encoding="application/x-tex">\lg_2 n</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.93858em;vertical-align:-0.24414em;"></span><span class="mop"><span class="mop">l<span style="margin-right:0.01389em;">g</span></span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.20696799999999996em;"><span style="top:-2.4558600000000004em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight">2</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.24414em;"><span></span></span></span></span></span></span><span class="mspace" style="margin-right:0.16666666666666666em;"></span><span class="mord mathdefault">n</span></span></span></span> 幅缩略图，可直接用来做范围查找(range query)，所需内存是原来的<span class="katex"><span class="katex-mathml"><math><semantics><mrow><mfrac><mn>3</mn><mn>4</mn></mfrac></mrow><annotation encoding="application/x-tex">\frac{3}{4}</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1.190108em;vertical-align:-0.345em;"></span><span class="mord"><span class="mopen nulldelimiter"></span><span class="mfrac"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.845108em;"><span style="top:-2.6550000000000002em;"><span class="pstrut" style="height:3em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mtight">4</span></span></span></span><span style="top:-3.23em;"><span class="pstrut" style="height:3em;"></span><span class="frac-line" style="border-bottom-width:0.04em;"></span></span><span style="top:-3.394em;"><span class="pstrut" style="height:3em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mtight">3</span></span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.345em;"><span></span></span></span></span></span><span class="mclose nulldelimiter"></span></span></span></span></span>根据像素的大小直接查询最接近的Mipmap。缺点：对于非正方形的图形效果不是很好。<br>
-<img src="https://dream1ce.github.io/post-images/1586318373356.jpg" alt="" loading="lazy"></p>
+<img src="https://yuanke-pan.github.io/post-images/1586318373356.jpg" alt="" loading="lazy"></p>
 <h5 id="各向异性过滤anisotropic-filtering">各向异性过滤(Anisotropic Filtering)</h5>
 <p>思想和Mipmap类似但是除了同时将宽和高缩小之外，还各进行了高和宽独自的缩小。<br>
-<img src="https://dream1ce.github.io/post-images/1586318290370.png" alt="" loading="lazy"></p>
+<img src="https://yuanke-pan.github.io/post-images/1586318290370.png" alt="" loading="lazy"></p>
 <h5 id="ewa-filtering">EWA Filtering</h5>
 <p>这个更加复杂是用圆形来覆盖原来不规则的形状。</p>
 <h1 id="在做shading时的其他技术">在做Shading时的其他技术</h1>
@@ -134,7 +134,7 @@
           <span class="date">2020-04-08</span>
           <i class="fa fa-tag"></i>
           
-          <a class="tag" href="https://dream1ce.github.io/tag/VGwmGlzjv/" title="计算机图形学">计算机图形学 </a>
+          <a class="tag" href="https://yuanke-pan.github.io/tag/VGwmGlzjv/" title="计算机图形学">计算机图形学 </a>
           
          </div>
         </div>
@@ -148,16 +148,16 @@
         <a class="fa fa-weibo" href="javascript:void((function(s,d,e){try{}catch(e){}var f='http://service.weibo.com/share/share.php?',u=d.location.href,p=['url=',e(u),'&amp;title=',e(d.title),'&amp;appkey=2924220432'].join('');function a(){if(!window.open([f,p].join(''),'mb',['toolbar=0,status=0,resizable=1,width=620,height=450,left=',(s.width-620)/2,',top=',(s.height-450)/2].join('')))u.href=[f,p].join('');};if(/Firefox/.test(navigator.userAgent)){setTimeout(a,0)}else{a()}})(screen,document,encodeURIComponent));"></a>
        </div>
        <div class="twitter">
-        <a class="fa fa-twitter" href="http://twitter.com/home?status=,https://dream1ce.github.io/post/shadinglecture-3texture-mapping/,;"></a>
+        <a class="fa fa-twitter" href="http://twitter.com/home?status=,https://yuanke-pan.github.io/post/shadinglecture-3texture-mapping/,;"></a>
        </div>
       </div>
       <div class="pagination">
        <ul class="clearfix">
 
-        <li class="pre pagbuttons"><a class="btn" role="navigation" href="https://dream1ce.github.io/post/geometry/" title="Geometry：Curve &amp; Surface">上一篇</a></li>
+        <li class="pre pagbuttons"><a class="btn" role="navigation" href="https://yuanke-pan.github.io/post/geometry/" title="Geometry：Curve &amp; Surface">上一篇</a></li>
          
         
-        <li class="next pagbuttons"><a class="btn" role="navigation" href="https://dream1ce.github.io/post/shadinglecture2pipeline/" title=" Shading:lecture 2(Pipeline)">下一篇</a></li>
+        <li class="next pagbuttons"><a class="btn" role="navigation" href="https://yuanke-pan.github.io/post/shadinglecture2pipeline/" title=" Shading:lecture 2(Pipeline)">下一篇</a></li>
         
        </ul>
       </div>
@@ -191,9 +191,9 @@
     </div>
    </div>
   </div>
-  <script src="https://dream1ce.github.io/media/scripts/jquery.js"></script>
-  <script src="https://dream1ce.github.io/media/scripts/jquery-migrate-1.2.1.min.js"></script>
-  <script src="https://dream1ce.github.io/media/scripts/jquery.appear.js"></script>
+  <script src="https://yuanke-pan.github.io/media/scripts/jquery.js"></script>
+  <script src="https://yuanke-pan.github.io/media/scripts/jquery-migrate-1.2.1.min.js"></script>
+  <script src="https://yuanke-pan.github.io/media/scripts/jquery.appear.js"></script>
 
 
  </body>
